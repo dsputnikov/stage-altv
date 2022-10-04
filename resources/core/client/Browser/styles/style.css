@@ -1,0 +1,3308 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+#auth .login_wrapper, #auth .login_wrapper .form_login .button span, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn img, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody span, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn img, #pedCreator .main_wrapper .body_flex .body .main_buttons .create_btn span, #pedCreator .main_wrapper .body_flex .body .main_buttons .random_btn img, #pedCreator .main_wrapper .body_flex .type_wrapper .type_btn img, #pedCreator .bank-error-window, #pedCreator .bank-error-window .bank-error-texts, #inventory .main_wrapper, #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item, #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot .item, #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot img, #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn span, #HUD_main .hints .hint_wrapper .hint p, #HUD_main .use-button .use-button-wrapper .use-button-btn p, #menu .house-prompt-wrapper .house-prompt-button span, #autosalon .autosalon-prompt-wrapper .autosalon-prompt-button span, #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button span, #autosalon .modal-window-wrapper .modal-window-container, #autosalon .success-window-wrapper .success-text-wrapper, #bank .bank-create-wrapper, #bank .bank-create-wrapper .bank-create-button span, #bank .bank-wrapper .bankomat-wrapper, #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right .bank-card-info-right-buttton span, #bank .bankomat-modal-wrapper, #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span, #bank .bank-error-window, #bank .bank-error-window .bank-error-texts, #bankomat .bankomat-wrapper, #bankomat .bankomat-modal-wrapper, #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span, #farm .farm-type-work-wrapper, #farm .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span, #farm .farm-info-wrapper, #farm .farm-info-wrapper .farm-info-button span, #farm .farm-prompt-wrapper .autosalon-prompt-button span, #bus .bus-work-wrapper .bus-info-wrapper, #bus .bus-work-wrapper .bus-info-wrapper .farm-info-button span, #bus .bus-prompt-wrapper .bus-prompt-button span, #mower .farm-type-work-wrapper, #mower .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span, #mower .farm-info-wrapper, #mower .farm-info-wrapper .farm-info-button span, #mower .farm-prompt-wrapper .autosalon-prompt-button span, #taxi .taxi-first-wnd-wrapper, #taxi .taxi-oders-wrapper, #taxi .taxi-rent-taxi-wrapper, #taxi .taxi-fare-wrapper, #houses .house-wrapper .house-b, #houses .house-wrapper .house-container, #houses .house-prompt-wrapper .house-prompt-button span, #houses .exit-wrapper .house-b, #houses .exit-wrapper .exit-container, #autoschool .autoschool-tabs-wrapper, #autoschool .autoschool-test-wrapper .autoschool-test-container, #autoschool .bus-prompt-wrapper .bus-prompt-button span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+#charSelector .select-wrapper, #charSelector .stat-wrapper, #HUD_main .hints, #menu .menu-wrapper .menu-main-wrapper .menu-main-texts, #menu .menu-wrapper .menu-main-wrapper .menu-main-banners-wrapper, #autosalon .list-vehicles-wrapper, #autosalon .list-vehicles-wrapper .list-vehicles-button span, #autosalon .right-side-wrapper, #bank .bank-wrapper .history-wrapper, #farm .farm-hueta-wrapper, #bus .bus-work-wrapper .bus-buttons-route-wrapper, #mower .farm-hueta-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-ExtraBold.eot");
+  src: local("Gilroy ExtraBold"), local("Gilroy-ExtraBold"), url("Gilroy-ExtraBold.eot?#iefix") format("embedded-opentype"), url("Gilroy-ExtraBold.woff") format("woff"), url("Gilroy-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Heavy.eot");
+  src: local("Gilroy Heavy"), local("Gilroy-Heavy"), url("Gilroy-Heavy.eot?#iefix") format("embedded-opentype"), url("Gilroy-Heavy.woff") format("woff"), url("Gilroy-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-LightItalic.eot");
+  src: local("Gilroy Light Italic"), local("Gilroy-LightItalic"), url("Gilroy-LightItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-LightItalic.woff") format("woff"), url("Gilroy-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-ThinItalic.eot");
+  src: local("Gilroy Thin Italic"), local("Gilroy-ThinItalic"), url("Gilroy-ThinItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-ThinItalic.woff") format("woff"), url("Gilroy-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-BlackItalic.eot");
+  src: local("Gilroy Black Italic"), local("Gilroy-BlackItalic"), url("Gilroy-BlackItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-BlackItalic.woff") format("woff"), url("Gilroy-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-BoldItalic.eot");
+  src: local("Gilroy Bold Italic"), local("Gilroy-BoldItalic"), url("Gilroy-BoldItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-BoldItalic.woff") format("woff"), url("Gilroy-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-SemiBold.eot");
+  src: local("Gilroy SemiBold"), local("Gilroy-SemiBold"), url("Gilroy-SemiBold.eot?#iefix") format("embedded-opentype"), url("Gilroy-SemiBold.woff") format("woff"), url("Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-UltraLightItalic.eot");
+  src: local("Gilroy UltraLight Italic"), local("Gilroy-UltraLightItalic"), url("Gilroy-UltraLightItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-UltraLightItalic.woff") format("woff"), url("Gilroy-UltraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-SemiBoldItalic.eot");
+  src: local("Gilroy SemiBold Italic"), local("Gilroy-SemiBoldItalic"), url("Gilroy-SemiBoldItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-SemiBoldItalic.woff") format("woff"), url("Gilroy-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Light.eot");
+  src: local("Gilroy Light"), local("Gilroy-Light"), url("Gilroy-Light.eot?#iefix") format("embedded-opentype"), url("Gilroy-Light.woff") format("woff"), url("Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-MediumItalic.eot");
+  src: local("Gilroy Medium Italic"), local("Gilroy-MediumItalic"), url("Gilroy-MediumItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-MediumItalic.woff") format("woff"), url("Gilroy-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-ExtraBoldItalic.eot");
+  src: local("Gilroy ExtraBold Italic"), local("Gilroy-ExtraBoldItalic"), url("Gilroy-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-ExtraBoldItalic.woff") format("woff"), url("Gilroy-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Regular.eot");
+  src: local("Gilroy Regular"), local("Gilroy-Regular"), url("Gilroy-Regular.eot?#iefix") format("embedded-opentype"), url("Gilroy-Regular.woff") format("woff"), url("Gilroy-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-HeavyItalic.eot");
+  src: local("Gilroy Heavy Italic"), local("Gilroy-HeavyItalic"), url("Gilroy-HeavyItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-HeavyItalic.woff") format("woff"), url("Gilroy-HeavyItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Medium.eot");
+  src: local("Gilroy Medium"), local("Gilroy-Medium"), url("Gilroy-Medium.eot?#iefix") format("embedded-opentype"), url("Gilroy-Medium.woff") format("woff"), url("Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-RegularItalic.eot");
+  src: local("Gilroy Regular Italic"), local("Gilroy-RegularItalic"), url("Gilroy-RegularItalic.eot?#iefix") format("embedded-opentype"), url("Gilroy-RegularItalic.woff") format("woff"), url("Gilroy-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-UltraLight.eot");
+  src: local("Gilroy UltraLight"), local("Gilroy-UltraLight"), url("Gilroy-UltraLight.eot?#iefix") format("embedded-opentype"), url("Gilroy-UltraLight.woff") format("woff"), url("Gilroy-UltraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Bold.eot");
+  src: local("Gilroy Bold"), local("Gilroy-Bold"), url("Gilroy-Bold.eot?#iefix") format("embedded-opentype"), url("Gilroy-Bold.woff") format("woff"), url("Gilroy-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Thin.eot");
+  src: local("Gilroy Thin"), local("Gilroy-Thin"), url("Gilroy-Thin.eot?#iefix") format("embedded-opentype"), url("Gilroy-Thin.woff") format("woff"), url("Gilroy-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gilroy';
+  src: url("Gilroy-Black.eot");
+  src: local("Gilroy Black"), local("Gilroy-Black"), url("Gilroy-Black.eot?#iefix") format("embedded-opentype"), url("Gilroy-Black.woff") format("woff"), url("Gilroy-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+.wholescreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua; }
+
+#auth .bg_1 {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#auth .login_wrapper .form_login {
+  transform: skewY(-4deg);
+  z-index: 1; }
+  #auth .login_wrapper .form_login h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 3.2vh;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+  #auth .login_wrapper .form_login p {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6vh;
+    text-align: center;
+    color: #ffffff; }
+  #auth .login_wrapper .form_login .inputs {
+    margin-top: 2vh; }
+    #auth .login_wrapper .form_login .inputs input {
+      display: block;
+      width: 33vh;
+      height: 8vh;
+      margin-top: 1.6vh;
+      outline: 0;
+      padding-left: 2vh;
+      background: white;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+      border-radius: 0.5vh;
+      border: 0;
+      box-sizing: border-box;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.6vh;
+      color: rgba(29, 40, 46, 0.8);
+      text-shadow: 0px 0px 4px rgba(176, 186, 217, 0.2); }
+    #auth .login_wrapper .form_login .inputs input:first-child {
+      margin-top: 0; }
+    #auth .login_wrapper .form_login .inputs input::-webkit-input-placeholder {
+      color: rgba(29, 40, 46, 0.6); }
+  #auth .login_wrapper .form_login .button {
+    position: relative;
+    margin-top: 1.8vh;
+    width: 33vh;
+    height: 7.5vh;
+    background: #2c80ef;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    transition: all 0.5s; }
+    #auth .login_wrapper .form_login .button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.6vh;
+      color: #ffffff; }
+    #auth .login_wrapper .form_login .button:hover {
+      background: #2973d3;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+      cursor: pointer; }
+  #auth .login_wrapper .form_login .down_btns {
+    display: flex;
+    align-items: center;
+    margin-top: 1.6vh; }
+    #auth .login_wrapper .form_login .down_btns input[type="checkbox"] {
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 4.5vh;
+      height: 2.1vh;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3em;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+    #auth .login_wrapper .form_login .down_btns input[type="checkbox"]:checked {
+      background: rgba(255, 255, 255, 0.2); }
+    #auth .login_wrapper .form_login .down_btns input[type="checkbox"]:after {
+      position: absolute;
+      content: "";
+      width: 1.5vh;
+      height: 1.5vh;
+      border-radius: 50%;
+      background: #2c80ef;
+      box-shadow: 0px 0px 4px #2c80ef;
+      left: 0;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+    #auth .login_wrapper .form_login .down_btns input[type="checkbox"]:checked:after {
+      left: calc(129% - 1em); }
+    #auth .login_wrapper .form_login .down_btns .label {
+      margin-left: 0.8vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.6vh;
+      color: #ffffff; }
+    #auth .login_wrapper .form_login .down_btns p {
+      margin-left: auto;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.6vh;
+      color: #ffffff;
+      text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.05); }
+  #auth .login_wrapper .form_login .form_login-register {
+    position: absolute;
+    left: 50vh;
+    top: 40vh; }
+    #auth .login_wrapper .form_login .form_login-register h1 {
+      text-align: left;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 2.4vh;
+      color: #ffffff;
+      text-shadow: 0px 0px 4px #000000; }
+    #auth .login_wrapper .form_login .form_login-register .form_login-register-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 33.8vh;
+      height: 10vh;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      background: linear-gradient(90deg, #152331 0%, #000000 100%);
+      border-radius: 0.5vh; }
+      #auth .login_wrapper .form_login .form_login-register .form_login-register-btn p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 2.4vh;
+        color: #ffffff; }
+      #auth .login_wrapper .form_login .form_login-register .form_login-register-btn:hover {
+        background: linear-gradient(90deg, #111c27 0%, #1b1b1b 100%);
+        height: 10.5vh; }
+    #auth .login_wrapper .form_login .form_login-register img {
+      position: absolute;
+      bottom: 0vh;
+      left: 27vh; }
+  #auth .login_wrapper .form_login .error {
+    margin-top: 1.5vh;
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4vh;
+    color: rgba(255, 255, 255, 0.4); }
+#auth .fade-enter-active {
+  transition: opacity 0.5s; }
+#auth .fade-enter {
+  opacity: 0; }
+
+#pedCreator {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  #pedCreator .bg {
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+  #pedCreator .main_wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4vh; }
+    #pedCreator .main_wrapper .up {
+      width: 41vh;
+      height: 8vh;
+      border-radius: 8px;
+      margin-left: 2vh; }
+      #pedCreator .main_wrapper .up span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.4vh;
+        width: max-content;
+        color: #ffffff; }
+    #pedCreator .main_wrapper .body_flex {
+      display: flex; }
+      #pedCreator .main_wrapper .body_flex .body {
+        display: block;
+        width: 41vh;
+        height: 74vh;
+        border-radius: 0.8vh; }
+        #pedCreator .main_wrapper .body_flex .body .body_wrapper {
+          width: 41vh;
+          height: 61vh;
+          overflow-x: scroll;
+          overflow-x: hidden; }
+          #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr {
+            margin-top: 2.3vh; }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name {
+              display: flex;
+              align-items: center;
+              margin-left: 3vh;
+              margin-bottom: 0.5vh; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name .strip {
+                width: 1.7vh;
+                height: 0.3vh;
+                background: #2c80ef;
+                border-radius: 10px; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name p {
+                margin-left: 1vh;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.6vh;
+                color: #ffffff; }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .input {
+              width: 41vh; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .input input {
+                margin: 0 3vh;
+                border: 0;
+                outline: 0;
+                width: 33vh;
+                height: 7vh;
+                background: rgba(255, 255, 255, 0.05);
+                border: 0;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.6vh;
+                padding-left: 2vh;
+                color: #ffffff; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .input input::placeholder {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.6vh;
+                color: #d1d1d1; }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto;
+              width: 35vh;
+              height: 7vh;
+              background: rgba(255, 255, 255, 0.05); }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input {
+                -webkit-appearance: none;
+                width: 16vh;
+                height: 0.4vh;
+                border-radius: 5px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                outline: none; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 1.8vh;
+                height: 1.8vh;
+                border-radius: 50%;
+                background: #2c80ef;
+                cursor: pointer; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input::-moz-range-thumb {
+                width: 1.8vh;
+                height: 1.8vh;
+                border-radius: 50%;
+                background: #2c80ef;
+                cursor: pointer; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper p {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5vh;
+                margin: 0 2vh;
+                color: #ffffff; }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper {
+              display: flex;
+              align-items: center;
+              margin: 0 auto;
+              width: 35vh;
+              height: 7vh;
+              background: rgba(255, 255, 255, 0.05); }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper p {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1.5vh;
+                margin-left: 2vh;
+                width: 9vh;
+                color: #ffffff; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher {
+                display: flex;
+                margin-left: 11vh; }
+                #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn {
+                  margin-left: 2vh;
+                  position: relative;
+                  background: #2c80ef;
+                  box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+                  border-radius: 5px;
+                  width: 3.4vh;
+                  height: 3.4vh; }
+                  #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn:hover {
+                    background: #2a78df;
+                    box-shadow: 0px 8px 14px rgba(40, 117, 218, 0.5); }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper {
+              display: flex;
+              justify-content: center; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper .parent_w_img {
+                width: 16vh;
+                margin: 0 1vh; }
+                #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper .parent_w_img .img_parent {
+                  z-index: 2;
+                  width: 16vh; }
+            #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper {
+              display: flex;
+              margin-top: 2vh; }
+              #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher {
+                display: flex;
+                margin-left: 2vh; }
+                #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody {
+                  position: relative;
+                  width: 7.6vh;
+                  height: 3.4vh;
+                  background: rgba(255, 255, 255, 0.1);
+                  border-radius: 4px; }
+                  #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody span {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.3vh;
+                    color: #ffffff; }
+                #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn {
+                  margin: 0 1vh;
+                  position: relative;
+                  width: 3.4vh;
+                  height: 3.4vh;
+                  background: #2c80ef;
+                  box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+                  border-radius: 5px; }
+                  #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn:hover {
+                    background: #2a78df;
+                    box-shadow: 0px 8px 14px rgba(40, 117, 218, 0.5); }
+          #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr:first-child {
+            margin-top: 0; }
+        #pedCreator .main_wrapper .body_flex .body .main_buttons {
+          display: flex;
+          margin-left: 3vh;
+          margin-top: 2vh; }
+          #pedCreator .main_wrapper .body_flex .body .main_buttons .create_btn {
+            position: relative;
+            width: 22.5vh;
+            height: 7.4vh;
+            background: #2c80ef; }
+            #pedCreator .main_wrapper .body_flex .body .main_buttons .create_btn span {
+              font-family: Gilroy;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1.4vh;
+              width: max-content;
+              color: #ffffff; }
+            #pedCreator .main_wrapper .body_flex .body .main_buttons .create_btn:hover {
+              transition: all 0.5s;
+              background: #2772d4;
+              box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5); }
+          #pedCreator .main_wrapper .body_flex .body .main_buttons .random_btn {
+            position: relative;
+            margin-left: 1.3vh;
+            background: rgba(255, 255, 255, 0.1);
+            width: 11vh;
+            height: 7.4vh; }
+            #pedCreator .main_wrapper .body_flex .body .main_buttons .random_btn:hover {
+              background: rgba(212, 212, 212, 0.1); }
+      #pedCreator .main_wrapper .body_flex .type_wrapper {
+        display: block;
+        margin-left: 2vh;
+        margin-top: 2.2vh; }
+        #pedCreator .main_wrapper .body_flex .type_wrapper .type_btn {
+          position: relative;
+          margin-top: 2vh;
+          width: 9vh;
+          height: 9vh;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 8px;
+          transition: all 0.5s; }
+          #pedCreator .main_wrapper .body_flex .type_wrapper .type_btn img {
+            width: 3vh; }
+          #pedCreator .main_wrapper .body_flex .type_wrapper .type_btn:hover {
+            background: #2c80ef;
+            box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+            border-radius: 8px; }
+  #pedCreator .bank-error-window {
+    z-index: 999;
+    width: 600px;
+    height: 350px;
+    background: rgba(224, 52, 68, 0.95);
+    box-shadow: 0px 0px 20px #ff4a5b; }
+    #pedCreator .bank-error-window .bank-error-texts h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 4vh;
+      color: #ffffff;
+      text-align: center; }
+    #pedCreator .bank-error-window .bank-error-texts p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3vh;
+      width: max-content;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6); }
+  #pedCreator .fade-enter-active,
+  #pedCreator .fade-leave-active {
+    transition: opacity 0.5s; }
+  #pedCreator .fade-enter, #pedCreator .fade-leave-to {
+    opacity: 0; }
+  #pedCreator ::-webkit-scrollbar {
+    width: 3px; }
+  #pedCreator ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+  #pedCreator ::-webkit-scrollbar-thumb {
+    background: white; }
+  #pedCreator ::-webkit-scrollbar-thumb:hover {
+    background: #ececec; }
+
+#charSelector .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#charSelector .main-text {
+  position: absolute;
+  top: 6.6vh;
+  left: 4vh;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 3.2vh;
+  letter-spacing: -0.02em;
+  color: #ffffff; }
+#charSelector .select-wrapper {
+  z-index: 12;
+  display: block;
+  left: 4vh; }
+  #charSelector .select-wrapper .select-block {
+    display: flex;
+    align-items: center;
+    margin-top: 1.4vh;
+    width: 30vh;
+    height: 8vh;
+    background: linear-gradient(180deg, #1c1e24 0%, rgba(28, 30, 36, 0.51) 100%);
+    box-shadow: inset 0px 8px 10px rgba(70, 65, 64, 0.25);
+    border-radius: 5px; }
+    #charSelector .select-wrapper .select-block p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2vh;
+      letter-spacing: -0.02em;
+      margin-left: 2vh;
+      color: #ffffff; }
+    #charSelector .select-wrapper .select-block img {
+      margin-left: 2vh; }
+  #charSelector .select-wrapper .select-block:first-child {
+    margin-top: 0; }
+  #charSelector .select-wrapper .select-block:hover {
+    cursor: pointer; }
+#charSelector .stat-wrapper {
+  z-index: 12;
+  display: block;
+  right: 4vh; }
+  #charSelector .stat-wrapper .stat-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 27vh;
+    height: 8vh;
+    margin-top: 1vh;
+    background: linear-gradient(269.16deg, #1c1e24 -4.56%, rgba(28, 30, 36, 0.72) 99.28%);
+    box-shadow: inset 0px 8px 10px rgba(88, 88, 88, 0.25);
+    border-radius: 5px; }
+    #charSelector .stat-wrapper .stat-block .stat-block-texts {
+      display: block;
+      margin-left: 3.9vh; }
+      #charSelector .stat-wrapper .stat-block .stat-block-texts h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.6vh;
+        /* identical to box height */
+        letter-spacing: -0.02em;
+        color: rgba(255, 255, 255, 0.5); }
+      #charSelector .stat-wrapper .stat-block .stat-block-texts p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.8vh;
+        letter-spacing: -0.02em;
+        color: #ffffff; }
+    #charSelector .stat-wrapper .stat-block img {
+      position: absolute;
+      width: 27vh;
+      height: 8vh; }
+  #charSelector .stat-wrapper .stat-block:first-child {
+    margin-top: 0; }
+#charSelector .playbtn-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 4.3vh; }
+  #charSelector .playbtn-wrapper .playbtn {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vh;
+    height: 8vh;
+    background: linear-gradient(180deg, #1c1e24 0%, rgba(28, 30, 36, 0.51) 100%);
+    box-shadow: inset 0px 8px 10px rgba(70, 65, 64, 0.25);
+    border-radius: 5px; }
+    #charSelector .playbtn-wrapper .playbtn span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2vh;
+      letter-spacing: -0.02em;
+      color: #ffffff; }
+  #charSelector .playbtn-wrapper .playbtn:hover {
+    cursor: pointer;
+    background: linear-gradient(269.16deg, #60fe8c -4.56%, rgba(67, 205, 106, 0.72) 99.28%);
+    box-shadow: inset 0px 8px 10px rgba(70, 65, 64, 0.25); }
+
+#inventory .bg {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#inventory .main_wrapper {
+  display: flex;
+  align-items: center; }
+  #inventory .main_wrapper .list-slots-wrapper {
+    display: block;
+    float: right; }
+    #inventory .main_wrapper .list-slots-wrapper .list-slots-texts {
+      display: flex;
+      align-items: baseline;
+      width: 54vh; }
+      #inventory .main_wrapper .list-slots-wrapper .list-slots-texts h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        margin-bottom: 2vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .list-slots-wrapper .list-slots-texts p {
+        margin-left: auto;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.4); }
+    #inventory .main_wrapper .list-slots-wrapper .slots {
+      width: 59.2vh;
+      height: 29.4vh;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap; }
+      #inventory .main_wrapper .list-slots-wrapper .slots .slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7vh;
+        height: 7vh;
+        background: rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        margin: 0.4vh 0.4vh; }
+        #inventory .main_wrapper .list-slots-wrapper .slots .slot .item {
+          background-position: center;
+          background-size: 5vh;
+          width: 5vh;
+          height: 5vh;
+          color: #c900c9; }
+          #inventory .main_wrapper .list-slots-wrapper .slots .slot .item img {
+            width: 3vh; }
+      #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot {
+        position: relative;
+        width: 7vh;
+        height: 7vh;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 0.4vh 0.4vh; }
+        #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item {
+          width: 5vh;
+          height: 5vh;
+          z-index: 5;
+          background-size: 4vh;
+          background-position: center;
+          background-repeat: no-repeat; }
+  #inventory .main_wrapper .player-skin-wrapper {
+    float: left;
+    margin-right: 9.1vh; }
+    #inventory .main_wrapper .player-skin-wrapper .player-skin-texts {
+      margin-bottom: 3vh; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin-texts h1 {
+        margin-bottom: 1vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3.2vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin-texts p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        color: #ffffff; }
+    #inventory .main_wrapper .player-skin-wrapper .player-skin {
+      display: flex;
+      align-items: center; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots {
+        display: block;
+        margin: 0 0.5vh; }
+        #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot {
+          position: relative;
+          width: 7vh;
+          height: 7vh;
+          background: rgba(255, 255, 255, 0.05);
+          margin-top: 1.5vh;
+          background-position: center; }
+          #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot .item {
+            width: 5vh;
+            height: 5vh;
+            z-index: 5;
+            background-size: 4vh;
+            background-position: center;
+            background-repeat: no-repeat; }
+  #inventory .main_wrapper .modal-window-wrapper .modal-window {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(151.42deg, rgba(72, 72, 72, 0.5) -0.93%, rgba(31, 31, 31, 0.5) 100.86%, rgba(133, 120, 120, 0.5) 100.86%);
+    padding: 2.5vh 2.5vh;
+    z-index: 5; }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img {
+      display: block;
+      text-align: center;
+      margin-top: 0vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img img {
+        width: 7vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.9vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.6); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-desc {
+      margin-top: 2.4vh;
+      text-align: center;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.2vh;
+      width: 19.5vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window hr {
+      margin-top: 3vh;
+      opacity: 0.1;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper {
+      display: flex;
+      margin-top: 1.5vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn {
+        position: relative;
+        width: 9vh;
+        height: 3.5vh; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.2vh;
+          color: #ffffff; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-use {
+        background: #2c80ef; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-drop {
+        margin-left: 1.2vh;
+        background: #6b6b6b; }
+#inventory .fade-enter-active,
+#inventory .fade-leave-active {
+  transition: opacity 0.5s; }
+#inventory .fade-enter, #inventory .fade-leave-to {
+  opacity: 0; }
+#inventory .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#inventory .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#inventory .slide-fade-enter, #inventory .slide-fade-leave-to
+ {
+  transform: translateX(-60px);
+  opacity: 0; }
+#inventory .slide-fade2-enter-active {
+  transition: all 0.3s ease; }
+#inventory .slide-fade2-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#inventory .slide-fade2-enter, #inventory .slide-fade-leave-to
+ {
+  transform: translateX(60px);
+  opacity: 0; }
+
+#HUD_main .right_up {
+  position: absolute;
+  right: 5vh;
+  top: 3vh; }
+  #HUD_main .right_up .logo_and_info {
+    display: block;
+    text-align: center;
+    display: flex;
+    align-items: center; }
+    #HUD_main .right_up .logo_and_info .info_server {
+      display: flex;
+      align-items: center; }
+      #HUD_main .right_up .logo_and_info .info_server .info_items {
+        display: flex;
+        align-items: center;
+        margin-left: 3vh; }
+        #HUD_main .right_up .logo_and_info .info_server .info_items p {
+          margin-left: 0.5vh;
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.6vh;
+          color: #ffffff;
+          text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+        #HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper {
+          display: block;
+          text-align: left; }
+          #HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper p {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 1.6vh;
+            color: #ffffff;
+            text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+          #HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper span {
+            margin-left: 0.5vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+            color: rgba(255, 255, 255, 0.5); }
+      #HUD_main .right_up .logo_and_info .info_server .info_items:first-child {
+        margin-left: 0; }
+    #HUD_main .right_up .logo_and_info .logo {
+      margin-left: 3.4vh;
+      width: 8vh;
+      height: 8vh; }
+  #HUD_main .right_up .money_wrapper {
+    position: absolute;
+    top: 13vh;
+    display: block;
+    right: 0vh;
+    text-align: right; }
+    #HUD_main .right_up .money_wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3.6vh;
+      color: #ffffff;
+      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+    #HUD_main .right_up .money_wrapper .money-bank {
+      display: flex;
+      align-items: center;
+      text-align: right;
+      width: 20vh;
+      justify-content: flex-end; }
+      #HUD_main .right_up .money_wrapper .money-bank p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+        color: #ffffff;
+        opacity: 0.7;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+      #HUD_main .right_up .money_wrapper .money-bank img {
+        opacity: 0.7;
+        margin-right: 0.5vh; }
+#HUD_main .hints {
+  left: 2vh;
+  display: block; }
+  #HUD_main .hints .hint_wrapper {
+    display: flex;
+    align-items: center; }
+    #HUD_main .hints .hint_wrapper .hint {
+      position: relative;
+      margin-top: 1vh;
+      width: 3.5vh;
+      height: 3.5vh;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%; }
+      #HUD_main .hints .hint_wrapper .hint p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+        color: #ffffff; }
+    #HUD_main .hints .hint_wrapper h1 {
+      margin-left: 2vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.5); }
+#HUD_main .notify {
+  position: absolute;
+  bottom: 5vh;
+  width: 100%; }
+  #HUD_main .notify .notify_wrapper {
+    margin: 2vh auto;
+    display: flex;
+    align-items: center;
+    width: 33.1vh;
+    height: 8.1vh;
+    border-radius: 1vh; }
+    #HUD_main .notify .notify_wrapper img {
+      width: 5.8vh;
+      margin-left: 1.9vh; }
+    #HUD_main .notify .notify_wrapper .texts {
+      margin-left: 2vh; }
+      #HUD_main .notify .notify_wrapper .texts h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+        color: #ffffff; }
+      #HUD_main .notify .notify_wrapper .texts p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.4vh;
+        color: #ffffff; }
+  #HUD_main .notify .slide-fade-enter-active {
+    transition: all 0.3s ease; }
+  #HUD_main .notify .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #HUD_main .notify .slide-fade-enter, #HUD_main .notify .slide-fade-leave-to
+   {
+    transform: translateX(10px);
+    opacity: 0; }
+#HUD_main .location {
+  position: absolute; }
+  #HUD_main .location .location_wrapper {
+    display: flex; }
+    #HUD_main .location .location_wrapper .location_text_wrapper {
+      margin-left: 1vh; }
+      #HUD_main .location .location_wrapper .location_text_wrapper h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+        color: #ffffff; }
+      #HUD_main .location .location_wrapper .location_text_wrapper p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.5); }
+#HUD_main .player_indicators {
+  margin-top: 2vh; }
+  #HUD_main .player_indicators img {
+    margin-left: 1vh; }
+  #HUD_main .player_indicators img:first-child {
+    margin-left: 0; }
+#HUD_main .use-button {
+  position: absolute;
+  bottom: 17.5vh;
+  width: 100%; }
+  #HUD_main .use-button .use-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    #HUD_main .use-button .use-button-wrapper .use-button-btn {
+      position: relative;
+      margin-top: 1vh;
+      width: 4vh;
+      height: 4vh;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%; }
+      #HUD_main .use-button .use-button-wrapper .use-button-btn p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2vh;
+        color: #ffffff; }
+    #HUD_main .use-button .use-button-wrapper span {
+      margin-left: 1vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+
+#speedometer .bg {
+  position: absolute;
+  bottom: 0vh;
+  right: 0vh;
+  width: 33.7vh;
+  height: 33.7vh; }
+#speedometer .main {
+  position: absolute;
+  bottom: 7vh;
+  right: 6vh; }
+  #speedometer .main .speed_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: baseline; }
+    #speedometer .main .speed_wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 8vh;
+      color: white; }
+    #speedometer .main .speed_wrapper P {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.8vh;
+      color: #ffffff; }
+  #speedometer .main .down_wrapper {
+    display: flex;
+    align-items: center; }
+    #speedometer .main .down_wrapper .parametr {
+      display: flex;
+      align-items: center;
+      margin-left: 2vh; }
+      #speedometer .main .down_wrapper .parametr .icon_speed {
+        margin-left: 0.5vh; }
+      #speedometer .main .down_wrapper .parametr p {
+        margin-left: 1vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.6vh;
+        color: #ffffff; }
+    #speedometer .main .down_wrapper .parametr:first-child {
+      margin-left: 0; }
+#speedometer .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#speedometer .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#speedometer .slide-fade-enter, #speedometer .slide-fade-leave-to
+ {
+  transform: translateX(-60px);
+  opacity: 0; }
+
+#HUD_chat {
+  position: absolute; }
+  #HUD_chat .chat_wrapper {
+    margin-left: 2.7vh;
+    margin-top: 2.7vh;
+    height: 25vh;
+    width: 80vh; }
+    #HUD_chat .chat_wrapper .messages {
+      height: 24vh;
+      overflow: hidden; }
+      #HUD_chat .chat_wrapper .messages p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.8vh;
+        color: #ffffff;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25); }
+  #HUD_chat .input {
+    margin-left: 2.7vh;
+    border: 0;
+    outline: 0;
+    padding-left: 2.5vh;
+    width: 476px;
+    height: 52px;
+    background: rgba(0, 0, 0, 0.33);
+    border-radius: 2px;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5vh;
+    color: rgba(255, 255, 255, 0.71); }
+  #HUD_chat .buttons {
+    display: flex;
+    margin-left: 2.7vh;
+    margin-top: 0.5vh; }
+    #HUD_chat .buttons span {
+      margin-left: 3vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: #ffffff;
+      border-bottom: 0; }
+    #HUD_chat .buttons span:first-child {
+      margin-left: 1vh; }
+
+#menu {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  #menu .menu-bg {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(107.39deg, rgba(20, 20, 32, 0.9) 0%, rgba(11, 10, 37, 0.9) 100.8%); }
+  #menu .test {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./img/main/bg2.png);
+    /* background-size: 50% 50%; */
+    background-repeat: none;
+    z-index: 23;
+    filter: blur(1px); }
+  #menu .menu-main-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  #menu .menu-wrapper {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 100%; }
+    #menu .menu-wrapper .menu-upblock {
+      display: flex;
+      align-items: center;
+      margin: 6.9vh auto; }
+      #menu .menu-wrapper .menu-upblock p {
+        margin-left: 4.3vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        color: #ffffff;
+        transition: all 0.5s; }
+      #menu .menu-wrapper .menu-upblock .menu-upblock-pressed {
+        color: #2c80ef; }
+      #menu .menu-wrapper .menu-upblock p:first-child {
+        margin-left: 0; }
+      #menu .menu-wrapper .menu-upblock p:hover {
+        color: #2c80ef;
+        text-shadow: 0px 0px 14px rgba(44, 128, 239, 0.75); }
+      #menu .menu-wrapper .menu-upblock img {
+        width: 7.2vh;
+        margin-left: 6.1vh; }
+    #menu .menu-wrapper .menu-info-wrapper {
+      display: block; }
+      #menu .menu-wrapper .menu-info-wrapper h2 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 3.2vh;
+        text-align: center;
+        letter-spacing: 0.4em;
+        margin: 5.8vh 0;
+        color: #509cff; }
+      #menu .menu-wrapper .menu-info-wrapper .menu-texts {
+        display: grid;
+        width: 100%;
+        justify-content: center;
+        grid-template-columns: 100px 100px 100px 100px 100px 100px;
+        grid-gap: 5vh 15.1vh; }
+        #menu .menu-wrapper .menu-info-wrapper .menu-texts .menu-text {
+          text-align: center; }
+          #menu .menu-wrapper .menu-info-wrapper .menu-texts .menu-text h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2.2vh;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.4);
+            width: 22.7vh; }
+          #menu .menu-wrapper .menu-info-wrapper .menu-texts .menu-text p {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 3.2vh;
+            width: 22.7vh;
+            color: #ffffff; }
+      #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center; }
+        #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container {
+          display: block;
+          height: 28.9vh;
+          width: 42vh;
+          overflow-x: hidden;
+          overflow-y: scroll; }
+          #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property {
+            display: flex;
+            align-items: center;
+            width: 40vh;
+            height: 9vh;
+            margin-top: 1vh;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.5s; }
+            #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property .menu-info-property-content {
+              display: flex;
+              width: 20vh; }
+              #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property .menu-info-property-content img {
+                margin-left: 2.3vh; }
+              #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property .menu-info-property-content p {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+                width: 10vh;
+                margin-left: 1.2vh;
+                color: rgba(255, 255, 255, 0.4); }
+              #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property .menu-info-property-content h1 {
+                position: relative;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.8vh;
+                left: 17.2vh;
+                color: #ffffff; }
+          #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property:hover {
+            background: rgba(255, 255, 255, 0.1); }
+          #menu .menu-wrapper .menu-info-wrapper .menu-info-property-wrapper .menu-info-property-container .menu-info-property:first-child {
+            margin-top: 0; }
+    #menu .menu-wrapper .menu-main-wrapper {
+      height: auto; }
+      #menu .menu-wrapper .menu-main-wrapper .menu-main-texts {
+        display: block; }
+        #menu .menu-wrapper .menu-main-wrapper .menu-main-texts h1 {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 10vh;
+          color: #ffffff; }
+        #menu .menu-wrapper .menu-main-wrapper .menu-main-texts p {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 3.3vh;
+          color: rgba(255, 255, 255, 0.5); }
+        #menu .menu-wrapper .menu-main-wrapper .menu-main-texts button {
+          margin-top: 4.9vh;
+          transition: all .5s;
+          width: 35vh;
+          height: 9vh;
+          background: linear-gradient(92.71deg, #2C80EF 1.29%, rgba(44, 128, 239, 0.36) 99.99%, rgba(44, 128, 239, 0) 100%);
+          border-radius: 5px;
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.6vh;
+          color: #ffffff;
+          outline: 0;
+          border: 0; }
+        #menu .menu-wrapper .menu-main-wrapper .menu-main-texts button:hover {
+          background: linear-gradient(92.71deg, #2C80EF 50.29%, rgba(44, 128, 239, 0.36) 99.99%, rgba(44, 128, 239, 0) 100%); }
+      #menu .menu-wrapper .menu-main-wrapper .menu-main-banners-wrapper {
+        right: 2vh;
+        display: flex;
+        flex-direction: column; }
+        #menu .menu-wrapper .menu-main-wrapper .menu-main-banners-wrapper .menu-main-banners {
+          height: 70vh;
+          width: 45vh;
+          overflow: scroll;
+          overflow-x: hidden; }
+          #menu .menu-wrapper .menu-main-wrapper .menu-main-banners-wrapper .menu-main-banners img {
+            margin-top: 1vh; }
+          #menu .menu-wrapper .menu-main-wrapper .menu-main-banners-wrapper .menu-main-banners img:first-child {
+            margin-top: 0; }
+  #menu .house-prompt-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 3vh;
+    left: 4.4vh;
+    opacity: 0.8;
+    z-index: 2; }
+    #menu .house-prompt-wrapper .house-prompt-button {
+      position: relative;
+      width: 11.5vh;
+      height: 4.1vh;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px; }
+      #menu .house-prompt-wrapper .house-prompt-button span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.7); }
+    #menu .house-prompt-wrapper p {
+      margin-left: 1.5vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.8vh;
+      color: rgba(255, 255, 255, 0.5); }
+  #menu .fade-enter-active,
+  #menu .fade-leave-active {
+    transition: opacity 0.5s; }
+  #menu .fade-enter, #menu .fade-leave-to {
+    opacity: 0; }
+  #menu ::-webkit-scrollbar {
+    width: 3px; }
+  #menu ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+  #menu ::-webkit-scrollbar-thumb {
+    background: white; }
+  #menu ::-webkit-scrollbar-thumb:hover {
+    background: #ececec; }
+
+#inventory .bg {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#inventory .main_wrapper {
+  display: flex;
+  align-items: center; }
+  #inventory .main_wrapper .list-slots-wrapper {
+    display: block;
+    float: right; }
+    #inventory .main_wrapper .list-slots-wrapper .list-slots-texts {
+      display: flex;
+      align-items: baseline;
+      width: 54vh; }
+      #inventory .main_wrapper .list-slots-wrapper .list-slots-texts h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        margin-bottom: 2vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .list-slots-wrapper .list-slots-texts p {
+        margin-left: auto;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.4); }
+    #inventory .main_wrapper .list-slots-wrapper .slots {
+      width: 59.2vh;
+      height: 29.4vh;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap; }
+      #inventory .main_wrapper .list-slots-wrapper .slots .slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7vh;
+        height: 7vh;
+        background: rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+        margin: 0.4vh 0.4vh; }
+        #inventory .main_wrapper .list-slots-wrapper .slots .slot .item {
+          background-position: center;
+          background-size: 5vh;
+          width: 5vh;
+          height: 5vh;
+          color: #c900c9; }
+          #inventory .main_wrapper .list-slots-wrapper .slots .slot .item img {
+            width: 3vh; }
+      #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot {
+        position: relative;
+        width: 7vh;
+        height: 7vh;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 0.4vh 0.4vh; }
+        #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item {
+          width: 5vh;
+          height: 5vh;
+          z-index: 5;
+          background-size: 4vh;
+          background-position: center;
+          background-repeat: no-repeat; }
+  #inventory .main_wrapper .player-skin-wrapper {
+    float: left;
+    margin-right: 9.1vh; }
+    #inventory .main_wrapper .player-skin-wrapper .player-skin-texts {
+      margin-bottom: 3vh; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin-texts h1 {
+        margin-bottom: 1vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3.2vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin-texts p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        color: #ffffff; }
+    #inventory .main_wrapper .player-skin-wrapper .player-skin {
+      display: flex;
+      align-items: center; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots {
+        display: block;
+        margin: 0 0.5vh; }
+        #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot {
+          position: relative;
+          width: 7vh;
+          height: 7vh;
+          background: rgba(255, 255, 255, 0.05);
+          margin-top: 1.5vh;
+          background-position: center; }
+          #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot .item {
+            width: 5vh;
+            height: 5vh;
+            z-index: 5;
+            background-size: 4vh;
+            background-position: center;
+            background-repeat: no-repeat; }
+  #inventory .main_wrapper .modal-window-wrapper .modal-window {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(151.42deg, rgba(72, 72, 72, 0.5) -0.93%, rgba(31, 31, 31, 0.5) 100.86%, rgba(133, 120, 120, 0.5) 100.86%);
+    padding: 2.5vh 2.5vh;
+    z-index: 5; }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img {
+      display: block;
+      text-align: center;
+      margin-top: 0vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img img {
+        width: 7vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.9vh;
+        color: #ffffff; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.6); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-desc {
+      margin-top: 2.4vh;
+      text-align: center;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.2vh;
+      width: 19.5vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window hr {
+      margin-top: 3vh;
+      opacity: 0.1;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.15); }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper {
+      display: flex;
+      margin-top: 1.5vh; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn {
+        position: relative;
+        width: 9vh;
+        height: 3.5vh; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.2vh;
+          color: #ffffff; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-use {
+        background: #2c80ef; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-drop {
+        margin-left: 1.2vh;
+        background: #6b6b6b; }
+#inventory .fade-enter-active,
+#inventory .fade-leave-active {
+  transition: opacity 0.5s; }
+#inventory .fade-enter, #inventory .fade-leave-to {
+  opacity: 0; }
+#inventory .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#inventory .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#inventory .slide-fade-enter, #inventory .slide-fade-leave-to
+ {
+  transform: translateX(-60px);
+  opacity: 0; }
+#inventory .slide-fade2-enter-active {
+  transition: all 0.3s ease; }
+#inventory .slide-fade2-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#inventory .slide-fade2-enter, #inventory .slide-fade-leave-to
+ {
+  transform: translateX(60px);
+  opacity: 0; }
+
+#autosalon {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  #autosalon .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  #autosalon .autosalon-prompt-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 4vh;
+    left: 4.4vh;
+    opacity: 0.5; }
+    #autosalon .autosalon-prompt-wrapper .autosalon-prompt-button {
+      position: relative;
+      width: 7.5vh;
+      height: 4.1vh;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px; }
+      #autosalon .autosalon-prompt-wrapper .autosalon-prompt-button span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.4vh;
+        color: rgba(255, 255, 255, 0.7); }
+    #autosalon .autosalon-prompt-wrapper p {
+      margin-left: 1.5vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.8vh;
+      color: rgba(255, 255, 255, 0.5); }
+  #autosalon .autosalon-type-text-wrapper {
+    position: absolute;
+    left: 4.4vh;
+    top: 3.3vh; }
+    #autosalon .autosalon-type-text-wrapper p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 3.2vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #autosalon .autosalon-type-text-wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3.2vh;
+      color: #ffffff; }
+  #autosalon .list-vehicles-wrapper {
+    margin-left: 4.4vh;
+    max-height: 70vh;
+    width: 37vh;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+    #autosalon .list-vehicles-wrapper .list-vehicles-button {
+      position: relative;
+      margin-top: 0.8vh;
+      width: 35vh;
+      height: 8vh;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.5s; }
+      #autosalon .list-vehicles-wrapper .list-vehicles-button span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        margin-left: 2vh;
+        color: #ffffff; }
+      #autosalon .list-vehicles-wrapper .list-vehicles-button:hover {
+        background: #2c80ef; }
+    #autosalon .list-vehicles-wrapper .list-vehicles-button:first-child {
+      margin-top: 0; }
+  #autosalon .right-side-wrapper {
+    right: 4.4vh; }
+    #autosalon .right-side-wrapper .right-side-name {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 5.2vh;
+      text-align: center;
+      font-feature-settings: "kern" off, "liga" off;
+      color: #ffffff; }
+    #autosalon .right-side-wrapper .right-side-profile-wrapper {
+      display: block;
+      margin-bottom: 20vh; }
+      #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress {
+        margin-top: 3.5vh; }
+        #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress .right-side-profile-texts {
+          display: flex;
+          align-items: center; }
+          #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress .right-side-profile-texts h1 {
+            margin-left: 0.8vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.2vh;
+            font-feature-settings: "kern" off, "liga" off;
+            color: #ffffff; }
+          #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress .right-side-profile-texts p {
+            margin-left: auto;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.6vh;
+            text-align: right;
+            font-feature-settings: "kern" off, "liga" off;
+            color: rgba(255, 255, 255, 0.5); }
+        #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress .right-side-profile-progress-wrapper {
+          margin-top: 1vh;
+          width: 28vh;
+          height: 6px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 10px; }
+          #autosalon .right-side-wrapper .right-side-profile-wrapper .right-side-profile-progress .right-side-profile-progress-wrapper .right-side-profile-progress-color {
+            transition: all 0.5s;
+            position: absolute;
+            height: 5px;
+            background: #2c80ef;
+            box-shadow: 0px 0px 10px rgba(44, 128, 239, 0.5);
+            border-radius: 10px;
+            animation: progres 4s infinite linear; }
+    #autosalon .right-side-wrapper .right-side-colors-wrapper {
+      position: absolute;
+      display: flex;
+      right: 0vh;
+      bottom: -13vh; }
+      #autosalon .right-side-wrapper .right-side-colors-wrapper .right-side-colors-container {
+        display: block;
+        margin-left: 3.1vh; }
+        #autosalon .right-side-wrapper .right-side-colors-wrapper .right-side-colors-container h1 {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2.4vh;
+          margin-bottom: 0.5vh;
+          color: #ffffff; }
+        #autosalon .right-side-wrapper .right-side-colors-wrapper .right-side-colors-container .right-side-colors {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          grid-column-gap: 7px;
+          grid-row-gap: 0.5em; }
+          #autosalon .right-side-wrapper .right-side-colors-wrapper .right-side-colors-container .right-side-colors .right-side-color {
+            width: 4vh;
+            height: 4vh;
+            border-radius: 5px; }
+  #autosalon .main-buttons-wrapper {
+    display: block;
+    position: absolute;
+    bottom: 3.9vh;
+    width: 100%; }
+    #autosalon .main-buttons-wrapper .main-buttons-texts-wrapper {
+      display: flex;
+      justify-content: center; }
+      #autosalon .main-buttons-wrapper .main-buttons-texts-wrapper .main-buttons-texts {
+        display: block;
+        justify-content: center;
+        text-align: center; }
+        #autosalon .main-buttons-wrapper .main-buttons-texts-wrapper .main-buttons-texts h1 {
+          width: max-content;
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 5.2vh;
+          text-align: center;
+          font-feature-settings: "kern" off, "liga" off;
+          color: #ffffff; }
+        #autosalon .main-buttons-wrapper .main-buttons-texts-wrapper .main-buttons-texts p {
+          text-align: center;
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 3vh;
+          margin-bottom: 0.5vh;
+          color: #c7c7c7;
+          margin-bottom: 2vh; }
+    #autosalon .main-buttons-wrapper .main-buttons-buttons {
+      display: flex;
+      justify-content: center; }
+      #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button {
+        position: relative;
+        width: 22vh;
+        height: 7vh;
+        transition: all 0.5s; }
+        #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2.4vh;
+          width: max-content;
+          color: #ffffff; }
+      #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button-buy {
+        margin-left: 2.7vh;
+        background: #2c80ef;
+        box-shadow: 0px 0px 10px rgba(44, 128, 239, 0.75); }
+        #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button-buy:hover {
+          background: #2a7ae2;
+          box-shadow: 0px 0px 10px rgba(43, 125, 231, 0.75); }
+      #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button-test {
+        background: rgba(255, 255, 255, 0.05); }
+        #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button-test:hover {
+          background: rgba(255, 255, 255, 0.1); }
+  #autosalon .modal-window-wrapper .modal-window-money-wrapper {
+    position: absolute;
+    display: flex;
+    top: 3vh;
+    width: 100%;
+    justify-content: center; }
+    #autosalon .modal-window-wrapper .modal-window-money-wrapper .modal-window-money {
+      display: flex;
+      align-items: center;
+      margin-top: 1vh;
+      margin-left: 4vh; }
+      #autosalon .modal-window-wrapper .modal-window-money-wrapper .modal-window-money p {
+        margin-left: 1vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.6vh;
+        color: #ffffff; }
+    #autosalon .modal-window-wrapper .modal-window-money-wrapper .modal-window-money:first-child {
+      margin-left: 0; }
+  #autosalon .modal-window-wrapper .modal-window-bg {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  #autosalon .modal-window-wrapper .modal-window-container {
+    width: 44vh; }
+    #autosalon .modal-window-wrapper .modal-window-container h1 {
+      width: max-content;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3.6vh;
+      color: #ffffff; }
+    #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons {
+      display: flex;
+      margin-top: 1vh; }
+      #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 21.5vh;
+        height: 7vh;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.5s; }
+        #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2vh;
+          color: #ffffff; }
+        #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button svg {
+          margin: 0 0.5vh; }
+        #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button .modal-svg {
+          transition: all 0.5s;
+          margin: 0 0.5vh; }
+        #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button:hover {
+          background: #2c80ef; }
+          #autosalon .modal-window-wrapper .modal-window-container .modal-window-buttons .modal-window-button:hover .modal-svg {
+            fill: #ffffff; }
+  #autosalon .success-window-wrapper {
+    z-index: 5; }
+    #autosalon .success-window-wrapper .success-window-bg-wrapper {
+      z-index: 5555; }
+      #autosalon .success-window-wrapper .success-window-bg-wrapper .success-window-bg {
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%; }
+      #autosalon .success-window-wrapper .success-window-bg-wrapper img {
+        position: absolute;
+        height: 100%;
+        width: 100%; }
+    #autosalon .success-window-wrapper .success-text-wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 4.3vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5); }
+    #autosalon .success-window-wrapper .success-text-wrapper p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 4.3vh;
+      text-align: center;
+      color: #2c80ef;
+      text-shadow: 0px 0px 20px rgba(44, 128, 239, 0.75); }
+    #autosalon .success-window-wrapper .success-textd-wrapper {
+      position: absolute;
+      width: 100%;
+      bottom: 2vh;
+      text-align: center; }
+      #autosalon .success-window-wrapper .success-textd-wrapper h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2vh;
+        color: rgba(255, 255, 255, 0.5); }
+  #autosalon .fade-enter-active,
+  #autosalon .fade-leave-active {
+    transition: opacity 0.5s; }
+  #autosalon .fade-enter, #autosalon .fade-leave-to {
+    opacity: 0; }
+  #autosalon .slide-fade-enter-active {
+    transition: all 0.3s ease; }
+  #autosalon .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #autosalon .slide-fade-enter,
+  #autosalon .slide-fade-leave-to {
+    transform: translateX(-60px);
+    opacity: 0; }
+  #autosalon .slide-fade2-enter-active {
+    transition: all 0.3s ease; }
+  #autosalon .slide-fade2-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #autosalon .slide-fade2-enter, #autosalon .slide-fade-leave-to
+   {
+    transform: translateX(60px);
+    opacity: 0; }
+  #autosalon ::-webkit-scrollbar {
+    width: 3px; }
+  #autosalon ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+  #autosalon ::-webkit-scrollbar-thumb {
+    background: white; }
+  #autosalon ::-webkit-scrollbar-thumb:hover {
+    background: #ececec; }
+
+#bank {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  #bank .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  #bank .bank-create-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 6.4vh;
+    color: #ffffff; }
+  #bank .bank-create-wrapper .bank-create-button {
+    top: 4.1vh;
+    position: relative;
+    margin: 0 auto;
+    width: 35vh;
+    height: 12vh;
+    background: #6b6b6b;
+    transition: all 0.5s; }
+    #bank .bank-create-wrapper .bank-create-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8vh;
+      color: #ffffff; }
+    #bank .bank-create-wrapper .bank-create-button:hover {
+      cursor: pointer;
+      background: #5c5c5c;
+      box-shadow: 0px 4px 0px #635d5d; }
+  #bank .bank-wrapper .history-wrapper {
+    display: block;
+    position: absolute;
+    left: 6.6vh;
+    max-height: 90.8vh;
+    width: 49vh;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+    #bank .bank-wrapper .history-wrapper .history-empty h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3.2vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.2); }
+    #bank .bank-wrapper .history-wrapper .history {
+      display: flex;
+      align-items: center;
+      width: 45vh;
+      height: 8vh;
+      margin-top: 1vh;
+      background: rgba(255, 255, 255, 0.1); }
+      #bank .bank-wrapper .history-wrapper .history .history-icon {
+        width: 2.9vh;
+        margin-left: 2.5vh; }
+      #bank .bank-wrapper .history-wrapper .history .history-text-wrapper {
+        display: block;
+        margin-left: 2vh; }
+        #bank .bank-wrapper .history-wrapper .history .history-text-wrapper h1 {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 2vh;
+          width: max-content;
+          color: #ffffff; }
+        #bank .bank-wrapper .history-wrapper .history .history-text-wrapper p {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2vh;
+          width: 19vh;
+          color: rgba(255, 255, 255, 0.6); }
+      #bank .bank-wrapper .history-wrapper .history span {
+        float: right;
+        margin: 0 auto;
+        text-align: left;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.8vh;
+        color: #e03444;
+        text-shadow: 0px 0px 10px rgba(224, 52, 68, 0.5); }
+    #bank .bank-wrapper .history-wrapper .history:first-child {
+      margin-top: 0; }
+  #bank .bank-wrapper .bankomat-wrapper .bank-card-info {
+    display: flex;
+    align-items: center;
+    width: 71vh;
+    height: 26vh;
+    margin-left: 10vh;
+    background: rgba(255, 255, 255, 0.05); }
+    #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-left {
+      float: left;
+      display: block;
+      margin-left: 4.5vh; }
+      #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-left img {
+        margin-bottom: 2vh; }
+      #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-left p {
+        margin-top: 2vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.8vh;
+        color: rgba(255, 255, 255, 0.5); }
+    #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right {
+      margin-left: 15vh; }
+      #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right h1 {
+        margin-bottom: 2vh;
+        text-align: right;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.8vh;
+        color: #ffffff; }
+      #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right .bank-card-info-right-buttton {
+        position: relative;
+        width: 25vh;
+        height: 8vh;
+        background: rgba(107, 107, 107, 0.4);
+        transition: all 0.5s; }
+        #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right .bank-card-info-right-buttton span {
+          font-family: Gilroy;
+          font-style: normal;
+          width: max-content;
+          font-weight: 500;
+          font-size: 2.4vh;
+          color: #ffffff; }
+        #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right .bank-card-info-right-buttton:hover {
+          cursor: pointer;
+          background: rgba(94, 94, 94, 0.4);
+          box-shadow: 0px 4px 0px rgba(107, 107, 107, 0.6); }
+  #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.8vh;
+    margin-top: 1.2vh;
+    margin-left: 10vh; }
+    #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button {
+      display: flex;
+      align-items: center;
+      width: 35vh;
+      height: 12vh;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.5s;
+      fill: #2f74ce; }
+      #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button svg {
+        margin-left: 2.9vh; }
+      #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button span {
+        margin-left: 2.3vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.4vh;
+        color: #ffffff; }
+      #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button:hover {
+        background: #2c80ef;
+        cursor: pointer;
+        box-shadow: 0px 4px 0px #2f74ce; }
+        #bank .bank-wrapper .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button:hover .bankomat-button {
+          fill: #ffffff; }
+  #bank .bankomat-modal-wrapper {
+    width: max-content; }
+    #bank .bankomat-modal-wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.4vh;
+      text-align: center;
+      color: #ffffff; }
+    #bank .bankomat-modal-wrapper p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: medium;
+      font-size: 2.2vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5); }
+    #bank .bankomat-modal-wrapper .bankomat-modal-inputs {
+      display: block; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-inputs input {
+        margin-top: 1.4vh;
+        display: block;
+        width: 41vh;
+        height: 8.9vh;
+        border: 0;
+        outline: 0;
+        padding-left: 3vh;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.4vh;
+        color: white; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-inputs input:first-child {
+        margin-left: 0; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-inputs input::placeholder {
+        color: rgba(255, 255, 255, 0.2); }
+    #bank .bankomat-modal-wrapper .bankomat-modal-buttons {
+      display: block;
+      text-align: center; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button {
+        position: relative;
+        margin-top: 1.4vh;
+        width: 43.8vh;
+        height: 10vh;
+        border-radius: 1vh;
+        background: linear-gradient(92.71deg, #2c80ef 1.29%, rgba(44, 128, 239, 0.36) 99.99%, #2c80ef 100%);
+        transition: all 0.5s; }
+        #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 2.4vh;
+          color: #ffffff; }
+        #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button:hover {
+          cursor: pointer; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close {
+        position: relative;
+        top: 1vh;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.4vh;
+        color: #ffffff80;
+        transition: all 0.5s;
+        text-decoration-line: underline; }
+        #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close:hover {
+          cursor: pointer;
+          color: #ffffffbb; }
+      #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close ::-webkit-outer-spin-button,
+      #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close ::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0;
+        /* <-- Apparently some margin are still there even though it's hidden */ }
+    #bank .bankomat-modal-wrapper .commission {
+      margin-top: 1vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.2); }
+  #bank .bank-error-window {
+    z-index: 999;
+    width: 600px;
+    height: 350px;
+    background: rgba(224, 52, 68, 0.95);
+    box-shadow: 0px 0px 20px #ff4a5b; }
+    #bank .bank-error-window .bank-error-texts h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 4vh;
+      color: #ffffff;
+      text-align: center; }
+    #bank .bank-error-window .bank-error-texts p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3vh;
+      width: max-content;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6); }
+  #bank .fade-enter-active,
+  #bank .fade-leave-active {
+    transition: opacity 0.5s; }
+  #bank .fade-enter, #bank .fade-leave-to {
+    opacity: 0; }
+  #bank .slide-fade-enter-active {
+    transition: all 0.3s ease; }
+  #bank .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #bank .slide-fade-enter, #bank .slide-fade-leave-to
+   {
+    transform: translateX(-60px);
+    opacity: 0; }
+  #bank ::-webkit-scrollbar {
+    width: 3px; }
+  #bank ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+  #bank ::-webkit-scrollbar-thumb {
+    background: white; }
+  #bank ::-webkit-scrollbar-thumb:hover {
+    background: #ececec; }
+  #bank h1 {
+    cursor: none; }
+  #bank p {
+    cursor: none; }
+
+#bankomat .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#bankomat .bankomat-wrapper .bankomat-texts-wrapper {
+  text-align: center; }
+  #bankomat .bankomat-wrapper .bankomat-texts-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.4vh;
+    color: #ffffff; }
+  #bankomat .bankomat-wrapper .bankomat-texts-wrapper p {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: rgba(255, 255, 255, 0.5); }
+#bankomat .bankomat-wrapper .bankomat-buttons-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.8vh;
+  margin-top: 3.4vh; }
+  #bankomat .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button {
+    display: flex;
+    align-items: center;
+    width: 35vh;
+    height: 12vh;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.5s;
+    fill: #2f74ce; }
+    #bankomat .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button svg {
+      margin-left: 2.9vh; }
+    #bankomat .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button span {
+      margin-left: 2.3vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.4vh;
+      color: #ffffff; }
+    #bankomat .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button:hover {
+      background: #2c80ef;
+      cursor: pointer;
+      box-shadow: 0px 4px 0px #2f74ce; }
+      #bankomat .bankomat-wrapper .bankomat-buttons-wrapper .bankomat-button:hover .bankomat-button {
+        fill: #ffffff; }
+#bankomat .bankomat-wrapper .bankomat-statistic-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh; }
+  #bankomat .bankomat-wrapper .bankomat-statistic-wrapper .bankomat-statistic-text {
+    display: block;
+    margin-left: 5.3vh; }
+    #bankomat .bankomat-wrapper .bankomat-statistic-wrapper .bankomat-statistic-text h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.4vh;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5); }
+    #bankomat .bankomat-wrapper .bankomat-statistic-wrapper .bankomat-statistic-text p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.4vh;
+      text-align: center;
+      color: white; }
+  #bankomat .bankomat-wrapper .bankomat-statistic-wrapper .bankomat-statistic-text:first-child {
+    margin-left: 0; }
+#bankomat .bankomat-modal-wrapper h1 {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.4vh;
+  text-align: center;
+  color: #ffffff; }
+#bankomat .bankomat-modal-wrapper .bankomat-modal-inputs {
+  display: block; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-inputs input {
+    margin-top: 1.4vh;
+    display: block;
+    width: 41vh;
+    height: 8.9vh;
+    border: 0;
+    outline: 0;
+    padding-left: 3vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: white; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-inputs input:first-child {
+    margin-left: 0; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-inputs input::placeholder {
+    color: rgba(255, 255, 255, 0.2); }
+#bankomat .bankomat-modal-wrapper .bankomat-modal-buttons {
+  display: block;
+  text-align: center; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button {
+    position: relative;
+    margin-top: 1.4vh;
+    width: 43.8vh;
+    height: 10vh;
+    border-radius: 1vh;
+    background: linear-gradient(92.71deg, #2c80ef 1.29%, rgba(44, 128, 239, 0.36) 99.99%, #2c80ef 100%);
+    transition: all 0.5s; }
+    #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.4vh;
+      color: #ffffff; }
+    #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button:hover {
+      cursor: pointer; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close {
+    position: relative;
+    top: 1vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.4vh;
+    color: #ffffff80;
+    transition: all 0.5s;
+    text-decoration-line: underline; }
+    #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close:hover {
+      cursor: pointer;
+      color: #ffffffbb; }
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close ::-webkit-outer-spin-button,
+  #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button-close ::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */ }
+#bankomat .bankomat-modal-wrapper .commission {
+  margin-top: 1vh;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2vh;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2); }
+#bankomat .fade-enter-active,
+#bankomat .fade-leave-active {
+  transition: opacity 0.5s; }
+#bankomat .fade-enter, #bankomat .fade-leave-to {
+  opacity: 0; }
+#bankomat .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#bankomat .slide-fade-leave-active {
+  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1); }
+#bankomat .slide-fade-enter, #bankomat .slide-fade-leave-to
+ {
+  transform: translateX(-60px);
+  opacity: 0; }
+#bankomat p {
+  cursor: none; }
+#bankomat h1 {
+  cursor: none; }
+
+#farm .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#farm .farm-type-work-wrapper h1 {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 7.2vh;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 6px 0px #aaaaaa; }
+#farm .farm-type-work-wrapper .farm-type-work-btns {
+  margin: 5.5vh 3vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vw; }
+  #farm .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    width: 350px;
+    height: 120px;
+    transition: all .5s; }
+    #farm .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.4vh;
+      width: max-content;
+      color: #ffffff; }
+    #farm .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn:hover {
+      background: #2c80ef;
+      box-shadow: 0px 4px 0px #2f74ce; }
+#farm .farm-info-wrapper {
+  display: block; }
+  #farm .farm-info-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7.2vh;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 6px 0px #aaaaaa; }
+  #farm .farm-info-wrapper p {
+    margin: 2.1vh auto;
+    max-width: 38vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5); }
+  #farm .farm-info-wrapper .farm-info-button {
+    position: relative;
+    margin: 0 auto;
+    width: 35vh;
+    height: 12vh;
+    margin-top: 6.4vh;
+    transition: all .5s; }
+    #farm .farm-info-wrapper .farm-info-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8vh;
+      color: #ffffff; }
+  #farm .farm-info-wrapper .start {
+    background: #2c80ef; }
+    #farm .farm-info-wrapper .start:hover {
+      background: #2a7be6;
+      box-shadow: 0px 4px 0px #2f74ce; }
+  #farm .farm-info-wrapper .stop {
+    background: #6B6B6B; }
+    #farm .farm-info-wrapper .stop:hover {
+      background: #5f5f5f;
+      box-shadow: 0px 4px 0px #635D5D; }
+  #farm .farm-info-wrapper h2 {
+    margin-top: 1vh;
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: #ffffff; }
+#farm .farm-hueta-wrapper {
+  left: 17.5vh; }
+  #farm .farm-hueta-wrapper .farm-hueta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 100px;
+    margin-top: 1.7vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #farm .farm-hueta-wrapper .farm-hueta span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2vh;
+      color: #ffffff; }
+  #farm .farm-hueta-wrapper .farm-hueta:first-child {
+    margin-top: 0; }
+#farm .farm-prompt-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 4vh;
+  left: 4.4vh;
+  opacity: 0.8; }
+  #farm .farm-prompt-wrapper .autosalon-prompt-button {
+    position: relative;
+    width: 11.5vh;
+    height: 4.1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #farm .farm-prompt-wrapper .autosalon-prompt-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.7); }
+  #farm .farm-prompt-wrapper p {
+    margin-left: 1.5vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+#farm .fade-enter-active,
+#farm .fade-leave-active {
+  transition: opacity 0.5s; }
+#farm .fade-enter, #farm .fade-leave-to {
+  opacity: 0; }
+#farm .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#farm .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#farm .slide-fade-enter,
+#farm .slide-fade-leave-to {
+  transform: translateX(-60px);
+  opacity: 0; }
+#farm .slide-fade2-enter-active {
+  transition: all 0.3s ease; }
+#farm .slide-fade2-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#farm .slide-fade2-enter, #farm .slide-fade-leave-to
+ {
+  transform: translateX(60px);
+  opacity: 0; }
+
+#bus .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#bus .bus-work-wrapper .bus-info-wrapper {
+  display: block; }
+  #bus .bus-work-wrapper .bus-info-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7.2vh;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 6px 0px #aaaaaa; }
+  #bus .bus-work-wrapper .bus-info-wrapper p {
+    margin: 2.1vh auto;
+    max-width: 38vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5); }
+  #bus .bus-work-wrapper .bus-info-wrapper .farm-info-button {
+    position: relative;
+    margin: 0 auto;
+    width: 35vh;
+    height: 12vh;
+    margin-top: 6.4vh;
+    transition: all 0.5s; }
+    #bus .bus-work-wrapper .bus-info-wrapper .farm-info-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8vh;
+      color: #ffffff; }
+  #bus .bus-work-wrapper .bus-info-wrapper .start {
+    background: #2c80ef; }
+    #bus .bus-work-wrapper .bus-info-wrapper .start:hover {
+      background: #2a7be6;
+      box-shadow: 0px 4px 0px #2f74ce; }
+  #bus .bus-work-wrapper .bus-info-wrapper .stop {
+    background: #6b6b6b; }
+    #bus .bus-work-wrapper .bus-info-wrapper .stop:hover {
+      background: #5f5f5f;
+      box-shadow: 0px 4px 0px #635d5d; }
+  #bus .bus-work-wrapper .bus-info-wrapper h2 {
+    margin-top: 1vh;
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: #ffffff; }
+#bus .bus-work-wrapper .bus-buttons-route-wrapper {
+  right: 11.7vh; }
+  #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route {
+    display: flex;
+    align-items: center;
+    width: 42vh;
+    height: 10vh;
+    margin-top: 1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    transition: all 1s; }
+    #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route .bus-button-text-wrapper {
+      display: block;
+      margin-left: 3vh; }
+      #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route .bus-button-text-wrapper h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.2vh;
+        color: #ffffff; }
+      #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route .bus-button-text-wrapper .bus-button-text {
+        display: flex; }
+        #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route .bus-button-text-wrapper .bus-button-text p {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2vh;
+          color: rgba(255, 255, 255, 0.5); }
+        #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route .bus-button-text-wrapper .bus-button-text span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2vh;
+          color: #c9ff56; }
+    #bus .bus-work-wrapper .bus-buttons-route-wrapper .bus-button-route:hover {
+      background: linear-gradient(151.09deg, #2C80EF 6.08%, rgba(44, 128, 239, 0.19) 82.21%); }
+#bus .bus-prompt-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 3vh;
+  right: 4.4vh;
+  opacity: 0.8; }
+  #bus .bus-prompt-wrapper .bus-prompt-button {
+    position: relative;
+    width: 11.5vh;
+    height: 4.1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #bus .bus-prompt-wrapper .bus-prompt-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.7); }
+  #bus .bus-prompt-wrapper p {
+    margin-left: 1.5vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+
+#mower .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#mower .farm-type-work-wrapper h1 {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 7.2vh;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 6px 0px #aaaaaa; }
+#mower .farm-type-work-wrapper .farm-type-work-btns {
+  margin: 5.5vh 3vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vw; }
+  #mower .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    width: 350px;
+    height: 120px;
+    transition: all .5s; }
+    #mower .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.4vh;
+      width: max-content;
+      color: #ffffff; }
+    #mower .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn:hover {
+      background: #2c80ef;
+      box-shadow: 0px 4px 0px #2f74ce; }
+#mower .farm-info-wrapper {
+  display: block; }
+  #mower .farm-info-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7.2vh;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 6px 0px #aaaaaa; }
+  #mower .farm-info-wrapper p {
+    margin: 2.1vh auto;
+    max-width: 38vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5); }
+  #mower .farm-info-wrapper .farm-info-button {
+    position: relative;
+    margin: 0 auto;
+    width: 35vh;
+    height: 12vh;
+    margin-top: 6.4vh;
+    transition: all .5s; }
+    #mower .farm-info-wrapper .farm-info-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8vh;
+      color: #ffffff; }
+  #mower .farm-info-wrapper .start {
+    background: #2c80ef; }
+    #mower .farm-info-wrapper .start:hover {
+      background: #2a7be6;
+      box-shadow: 0px 4px 0px #2f74ce; }
+  #mower .farm-info-wrapper .stop {
+    background: #6B6B6B; }
+    #mower .farm-info-wrapper .stop:hover {
+      background: #5f5f5f;
+      box-shadow: 0px 4px 0px #635D5D; }
+  #mower .farm-info-wrapper h2 {
+    margin-top: 1vh;
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: #ffffff; }
+#mower .farm-hueta-wrapper {
+  left: 17.5vh; }
+  #mower .farm-hueta-wrapper .farm-hueta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 100px;
+    margin-top: 1.7vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #mower .farm-hueta-wrapper .farm-hueta span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.2vh;
+      color: #ffffff; }
+  #mower .farm-hueta-wrapper .farm-hueta:first-child {
+    margin-top: 0; }
+#mower .farm-prompt-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 4vh;
+  left: 4.4vh;
+  opacity: 0.8; }
+  #mower .farm-prompt-wrapper .autosalon-prompt-button {
+    position: relative;
+    width: 11.5vh;
+    height: 4.1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #mower .farm-prompt-wrapper .autosalon-prompt-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.7); }
+  #mower .farm-prompt-wrapper p {
+    margin-left: 1.5vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+#mower .fade-enter-active,
+#mower .fade-leave-active {
+  transition: opacity 0.5s; }
+#mower .fade-enter, #mower .fade-leave-to {
+  opacity: 0; }
+#mower .slide-fade-enter-active {
+  transition: all 0.3s ease; }
+#mower .slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#mower .slide-fade-enter,
+#mower .slide-fade-leave-to {
+  transform: translateX(-60px);
+  opacity: 0; }
+#mower .slide-fade2-enter-active {
+  transition: all 0.3s ease; }
+#mower .slide-fade2-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+#mower .slide-fade2-enter, #mower .slide-fade-leave-to
+ {
+  transform: translateX(60px);
+  opacity: 0; }
+
+#taxi {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  #taxi .xd {
+    position: absolute;
+    z-index: 3; }
+  #taxi .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+  #taxi .taxi-first-wnd-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7.2vh;
+    color: white;
+    text-align: center;
+    text-shadow: 0px 0.6vh 0px #aaaaaa; }
+  #taxi .taxi-first-wnd-wrapper p {
+    margin-top: 3vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    text-align: center;
+    width: 57vh;
+    color: rgba(255, 255, 255, 0.5); }
+  #taxi .taxi-first-wnd-wrapper .taxi-first-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vh;
+    height: 12vh;
+    margin: 0 auto;
+    margin-top: 4vh;
+    transition: all 0.5s; }
+    #taxi .taxi-first-wnd-wrapper .taxi-first-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.8vh;
+      color: #ffffff;
+      transform: rotate(-0.33deg); }
+  #taxi .taxi-first-wnd-wrapper .taxi-first-button-start {
+    background: #ffd600; }
+    #taxi .taxi-first-wnd-wrapper .taxi-first-button-start:hover {
+      box-shadow: 0px 4px 0px #c9a900;
+      background: #f5cc00; }
+  #taxi .taxi-first-wnd-wrapper .taxi-first-button-leave {
+    background: #6b6b6b; }
+    #taxi .taxi-first-wnd-wrapper .taxi-first-button-leave:hover {
+      background: #5c5c5c;
+      box-shadow: 0px 4px 0px #635d5d; }
+  #taxi .taxi-first-wnd-wrapper h2 {
+    margin-top: 1vh;
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4vh;
+    color: #ffffff; }
+  #taxi .taxi-oders-wrapper {
+    display: block;
+    height: 80.5vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 98vh; }
+    #taxi .taxi-oders-wrapper .taxi-order-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 96vh;
+      height: 12vh;
+      border-radius: 1vh;
+      margin-top: 1.7vh;
+      background: linear-gradient(180deg, rgba(33, 30, 46, 0.7) 16.76%, rgba(33, 30, 46, 0.658) 100.3%); }
+      #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-wrapper-text {
+        margin: 0 3vh; }
+        #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-wrapper-text h1 {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 2vh;
+          color: rgba(255, 255, 255, 0.4); }
+        #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-wrapper-text p {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2vh;
+          color: #ffffff; }
+      #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20vh;
+        height: 8vh;
+        margin-left: 2vh;
+        /* yellow */
+        background: #ffe83f;
+        border-radius: 1vh;
+        transition: all 0.5s; }
+        #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 24px;
+          text-align: center;
+          color: #ffffff; }
+        #taxi .taxi-oders-wrapper .taxi-order-wrapper .taxi-order-button:hover {
+          background: #e0cd39; }
+    #taxi .taxi-oders-wrapper .taxi-order-wrapper:first-child {
+      margin-top: 0; }
+  #taxi .taxi-rent-taxi-wrapper {
+    display: block;
+    text-align: center; }
+    #taxi .taxi-rent-taxi-wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 4.8vh;
+      color: #ffffff; }
+    #taxi .taxi-rent-taxi-wrapper p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.8vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #taxi .taxi-rent-taxi-wrapper h2 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.6vh; }
+      #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent-taxi-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24.5vh;
+        height: 6.1vh;
+        margin: 0 1vh;
+        transition: all 0.6s; }
+        #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent-taxi-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2vh;
+          color: #ffffff; }
+      #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent {
+        background: #ffe83f;
+        border-radius: 0.5vh; }
+        #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent:hover {
+          box-shadow: 0px 4px 4px rgba(255, 232, 63, 0.25); }
+      #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent-close {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        border-radius: 0.5vh; }
+        #taxi .taxi-rent-taxi-wrapper .taxi-rent-taxi-buttons .taxi-rent-close:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border: 0; }
+  #taxi .taxi-fare-wrapper h1 {
+    text-align: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 4.8vh;
+    color: #ffffff; }
+  #taxi .taxi-fare-wrapper input {
+    margin-top: 3vh;
+    width: 50vh;
+    text-align: center;
+    height: 6.8vh;
+    border: 0;
+    outline: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    color: rgba(255, 255, 255, 0.5); }
+  #taxi .taxi-fare-wrapper input::-webkit-outer-spin-button,
+  #taxi .taxi-fare-wrapper input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */ }
+  #taxi .taxi-fare-wrapper .taxi-fare-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.6vh; }
+    #taxi .taxi-fare-wrapper .taxi-fare-buttons .taxi-fare-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24.5vh;
+      height: 6.1vh;
+      transition: all 0.6s; }
+      #taxi .taxi-fare-wrapper .taxi-fare-buttons .taxi-fare-button span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        color: #ffffff; }
+    #taxi .taxi-fare-wrapper .taxi-fare-buttons .fare-rent {
+      background: #ffe83f;
+      border-radius: 0.5vh; }
+      #taxi .taxi-fare-wrapper .taxi-fare-buttons .fare-rent:hover {
+        box-shadow: 0px 4px 4px rgba(255, 232, 63, 0.25); }
+    #taxi .taxi-fare-wrapper .taxi-fare-buttons .fare-rent-close {
+      margin-left: auto;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      box-sizing: border-box;
+      border-radius: 0.5vh; }
+      #taxi .taxi-fare-wrapper .taxi-fare-buttons .fare-rent-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border: 0; }
+  #taxi ::-webkit-scrollbar {
+    width: 3px; }
+  #taxi ::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+  #taxi ::-webkit-scrollbar-thumb {
+    background: white; }
+  #taxi ::-webkit-scrollbar-thumb:hover {
+    background: #ececec; }
+
+#houses .house-wrapper .house-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#houses .house-wrapper .house-container .house-text-h-wrapper {
+  text-align: center;
+  margin: 5vh 0; }
+  #houses .house-wrapper .house-container .house-text-h-wrapper h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.2vh;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4); }
+  #houses .house-wrapper .house-container .house-text-h-wrapper p {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.2vh;
+    color: #ffffff; }
+#houses .house-wrapper .house-container .house-container-texts {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.5vw; }
+  #houses .house-wrapper .house-container .house-container-texts .house-container-texts-text h1 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+  #houses .house-wrapper .house-container .house-container-texts .house-container-texts-text p {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.8vh;
+    color: white; }
+  #houses .house-wrapper .house-container .house-container-texts .house-container-texts-garage {
+    display: flex;
+    align-items: center;
+    margin-left: auto; }
+    #houses .house-wrapper .house-container .house-container-texts .house-container-texts-garage p {
+      margin-left: 1vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 3vh;
+      color: rgba(255, 255, 255, 0.5); }
+#houses .house-wrapper .house-container .house-container-buttons {
+  display: flex;
+  justify-content: center; }
+  #houses .house-wrapper .house-container .house-container-buttons .house-container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vh;
+    height: 8vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1vh;
+    margin-left: 2.4vh;
+    transition: all 0.5s; }
+    #houses .house-wrapper .house-container .house-container-buttons .house-container-button:hover {
+      background: #2c80ef; }
+    #houses .house-wrapper .house-container .house-container-buttons .house-container-button span {
+      margin-left: 0.5vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2vh;
+      color: #ffffff; }
+  #houses .house-wrapper .house-container .house-container-buttons .house-container-button:first-child {
+    margin-left: 0; }
+#houses .house-prompt-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 3vh;
+  left: 4.4vh;
+  opacity: 0.8; }
+  #houses .house-prompt-wrapper .house-prompt-button {
+    position: relative;
+    width: 11.5vh;
+    height: 4.1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #houses .house-prompt-wrapper .house-prompt-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.7); }
+  #houses .house-prompt-wrapper p {
+    margin-left: 1.5vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+#houses .exit-wrapper .house-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+#houses .exit-wrapper .house-b {
+  width: 45vh;
+  height: 46.4vh; }
+#houses .exit-wrapper .exit-container h1 {
+  text-align: center;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3.2vh;
+  color: #ffffff; }
+#houses .exit-wrapper .exit-container .exit-buttons {
+  display: block;
+  margin-top: 3.9vh; }
+  #houses .exit-wrapper .exit-container .exit-buttons .exit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    width: 20vh;
+    height: 8vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    transition: all 0.5s; }
+    #houses .exit-wrapper .exit-container .exit-buttons .exit-button p {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2vh;
+      color: #ffffff; }
+    #houses .exit-wrapper .exit-container .exit-buttons .exit-button:hover {
+      background: #2c80ef; }
+  #houses .exit-wrapper .exit-container .exit-buttons .exit-button:first-child {
+    margin-top: 0; }
+
+#autoschool .bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1; }
+#autoschool .bg2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(107.39deg, rgba(16, 16, 28, 0.9) 0%, rgba(11, 11, 29, 0.9) 100.8%); }
+#autoschool .text-center {
+  z-index: 12;
+  position: absolute;
+  width: 100%;
+  margin: 3vh auto;
+  text-align: center;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.8vh;
+  letter-spacing: 0.02em;
+  color: #ffffff; }
+#autoschool .autoschool-tabs-wrapper {
+  display: flex;
+  z-index: 12; }
+  #autoschool .autoschool-tabs-wrapper .autoschool-tab {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40vh;
+    height: 70vh;
+    margin-left: 3.8vh;
+    background-image: linear-gradient(187.34deg, rgba(18, 21, 34, 0.97) 1.21%, rgba(5, 7, 15, 0.9603) 94.3%), url("img/test.png");
+    background-size: 40vh 70vh;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 4px rgba(47, 47, 47, 0.25);
+    border-radius: 1vh; }
+    #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-logo {
+      width: 18vh;
+      margin: 14.5vh auto; }
+    #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-texts {
+      text-align: center; }
+      #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-texts h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 3.2vh;
+        color: #ffffff;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); }
+      #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-texts p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.8vh;
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); }
+    #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2.9vh auto;
+      width: 20vh;
+      height: 6vh;
+      transition: all 0.5s;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px; }
+      #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-button p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+        color: #ffffff; }
+      #autoschool .autoschool-tabs-wrapper .autoschool-tab .autoschool-tab-button:hover {
+        background: #2c80ef; }
+  #autoschool .autoschool-tabs-wrapper .autoschool-tab:first-child {
+    margin-left: 0; }
+#autoschool .autoschool-test-wrapper {
+  z-index: 12; }
+  #autoschool .autoschool-test-wrapper .test {
+    position: absolute;
+    width: 100%;
+    z-index: 23; }
+    #autoschool .autoschool-test-wrapper .test .type-img {
+      margin: 0 auto;
+      top: 1vh;
+      width: 10vh;
+      top: 10vh;
+      text-align: center;
+      z-index: 12; }
+  #autoschool .autoschool-test-wrapper .autoschool-test-container {
+    z-index: 12; }
+    #autoschool .autoschool-test-wrapper .autoschool-test-container h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3.2vh;
+      text-align: center;
+      margin-bottom: 2vh;
+      color: #33c75d; }
+    #autoschool .autoschool-test-wrapper .autoschool-test-container h2 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 3.2vh;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 4vh; }
+    #autoschool .autoschool-test-wrapper .autoschool-test-container .autoschool-test-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2.4vh 2.4vh; }
+      #autoschool .autoschool-test-wrapper .autoschool-test-container .autoschool-test-buttons .autoschool-test-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25vh;
+        height: 8vh;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0.5vh;
+        transition: all 0.5s; }
+        #autoschool .autoschool-test-wrapper .autoschool-test-container .autoschool-test-buttons .autoschool-test-button p {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.4vh;
+          color: #ffffff; }
+        #autoschool .autoschool-test-wrapper .autoschool-test-container .autoschool-test-buttons .autoschool-test-button:hover {
+          background: #2c80ef; }
+  #autoschool .autoschool-test-wrapper .test-text {
+    width: 100%;
+    z-index: 12;
+    position: absolute;
+    bottom: 3vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.4vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3); }
+#autoschool .bus-prompt-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 3vh;
+  right: 4.4vh;
+  opacity: 0.8;
+  z-index: 1; }
+  #autoschool .bus-prompt-wrapper .bus-prompt-button {
+    position: relative;
+    width: 11.5vh;
+    height: 4.1vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px; }
+    #autoschool .bus-prompt-wrapper .bus-prompt-button span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4vh;
+      color: rgba(255, 255, 255, 0.7); }
+  #autoschool .bus-prompt-wrapper p {
+    margin-left: 1.5vh;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: rgba(255, 255, 255, 0.5); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+user-select:none .disable {
+  display: none; }
+
+::selection {
+  background: transparent; }
+
+[v-cloak] {
+  display: none; }
+
+.opacity1 {
+  opacity: 1; }

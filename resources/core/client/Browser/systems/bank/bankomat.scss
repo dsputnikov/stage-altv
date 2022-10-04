@@ -1,0 +1,226 @@
+#bankomat {
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .bankomat-wrapper {
+        @extend %center;
+        .bankomat-texts-wrapper {
+            text-align: center;
+            h1 {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.4vh;
+
+                color: #ffffff;
+            }
+            p {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+        .bankomat-buttons-wrapper {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0.8vh;
+            margin-top: 3.4vh;
+            .bankomat-button {
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+                width: 35vh;
+                height: 12vh;
+
+                background: rgba(255, 255, 255, 0.05);
+
+                transition: all 0.5s;
+                fill: #2f74ce;
+                svg {
+                    margin-left: 2.9vh;
+                }
+                span {
+                    margin-left: 2.3vh;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 2.4vh;
+
+                    // text-align: center;
+
+                    color: #ffffff;
+                }
+                &:hover {
+                    background: #2c80ef;
+                    cursor: pointer;
+                    .bankomat-button {
+                        fill: #ffffff;
+                    }
+
+                    box-shadow: 0px 4px 0px #2f74ce;
+                }
+            }
+        }
+        .bankomat-statistic-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+            .bankomat-statistic-text {
+                display: block;
+                margin-left: 5.3vh;
+                h1 {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2.4vh;
+                    text-align: center;
+
+                    color: rgba(255, 255, 255, 0.5);
+                }
+                p {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2.4vh;
+                    text-align: center;
+
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+            .bankomat-statistic-text:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    .bankomat-modal-wrapper {
+        @extend %center;
+        h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2.4vh;
+
+            text-align: center;
+
+            color: #ffffff;
+        }
+        .bankomat-modal-inputs {
+            display: block;
+            // margin: 0 auto;
+            input {
+                margin-top: 1.4vh;
+                display: block;
+                width: 41vh;
+                height: 8.9vh;
+                border: 0;
+                outline: 0;
+                padding-left: 3vh;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.05);
+                //
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+
+                color: rgba(255, 255, 255, 1);
+            }
+            input:first-child {
+                margin-left: 0;
+            }
+            input::placeholder {
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+        .bankomat-modal-buttons {
+            display: block;
+            text-align: center;
+            .bankomat-modal-button {
+                position: relative;
+                margin-top: 1.4vh;
+                width: 43.8vh;
+                height: 10vh;
+                border-radius: 1vh;
+                background: linear-gradient(92.71deg, #2c80ef 1.29%, rgba(44, 128, 239, 0.36) 99.99%, #2c80ef 100%);
+                transition: all 0.5s;
+                span {
+                    @extend %center;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 2.4vh;
+
+                    color: #ffffff;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .bankomat-modal-button-close {
+                position: relative;
+                top: 1vh;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.4vh;
+                color: #ffffff80;
+
+                transition: all 0.5s;
+                text-decoration-line: underline;
+                &:hover {
+                    // text-decoration-line: none;
+                    cursor: pointer;
+                    color: #ffffffbb;
+                }
+            }
+            .bankomat-modal-button-close ::-webkit-outer-spin-button,
+            .bankomat-modal-button-close ::-webkit-inner-spin-button {
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none;
+                margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            }
+        }
+        .commission {
+            margin-top: 1vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2vh;
+
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active до версии 2.1.8 */ {
+        transform: translateX(-60px);
+        opacity: 0;
+    }
+    p {
+        cursor: none;
+    }
+    h1 {
+        cursor: none;
+    }
+}

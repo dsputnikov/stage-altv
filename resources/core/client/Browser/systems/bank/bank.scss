@@ -1,0 +1,410 @@
+#bank {
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .bank-create-wrapper {
+        @extend %center;
+        h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 6.4vh;
+
+            color: #ffffff;
+        }
+        .bank-create-button {
+            top: 4.1vh;
+            position: relative;
+            margin: 0 auto;
+            width: 35vh;
+            height: 12vh;
+
+            background: #6b6b6b;
+            transition: all 0.5s;
+            span {
+                @extend %center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.8vh;
+
+                color: #ffffff;
+            }
+            &:hover {
+                cursor: pointer;
+                background: #5c5c5c;
+                box-shadow: 0px 4px 0px #635d5d;
+            }
+        }
+    }
+    .bank-wrapper {
+        .history-wrapper {
+            @extend %vcenter;
+            display: block;
+            position: absolute;
+            left: 6.6vh;
+            max-height: 90.8vh;
+            width: 49vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            .history-empty {
+                // width: 100%;
+                h1 {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 3.2vh;
+                    text-align: center;
+
+                    color: rgba(255, 255, 255, 0.2);
+                }
+            }
+            .history {
+                display: flex;
+                align-items: center;
+                width: 45vh;
+                height: 8vh;
+                margin-top: 1vh;
+
+                background: rgba(255, 255, 255, 0.1);
+                .history-icon {
+                    width: 2.9vh;
+                    margin-left: 2.5vh;
+                }
+                .history-text-wrapper {
+                    display: block;
+                    margin-left: 2vh;
+                    h1 {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 2vh;
+                        width: max-content;
+                        color: #ffffff;
+                    }
+                    p {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 2vh;
+                        width: 19vh;
+
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
+                span {
+                    float: right;
+                    margin: 0 auto;
+                    text-align: left;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.8vh;
+
+                    color: #e03444;
+
+                    text-shadow: 0px 0px 10px rgba(224, 52, 68, 0.5);
+                }
+            }
+            .history:first-child {
+                margin-top: 0;
+            }
+        }
+        .bankomat-wrapper {
+            @extend %center;
+            .bank-card-info {
+                display: flex;
+                align-items: center;
+                width: 71vh;
+                height: 26vh;
+                margin-left: 10vh;
+
+                background: rgba(255, 255, 255, 0.05);
+                .bank-card-info-left {
+                    float: left;
+                    display: block;
+                    margin-left: 4.5vh;
+                    img {
+                        margin-bottom: 2vh;
+                    }
+                    p {
+                        margin-top: 2vh;
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 2.8vh;
+
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+                .bank-card-info-right {
+                    margin-left: 15vh;
+                    h1 {
+                        margin-bottom: 2vh;
+                        text-align: right;
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 2.8vh;
+
+                        color: #ffffff;
+                    }
+                    .bank-card-info-right-buttton {
+                        position: relative;
+                        width: 25vh;
+                        height: 8vh;
+
+                        background: rgba(107, 107, 107, 0.4);
+                        transition: all 0.5s;
+                        span {
+                            @extend %center;
+                            font-family: Gilroy;
+                            font-style: normal;
+                            width: max-content;
+                            font-weight: 500;
+                            font-size: 2.4vh;
+
+                            color: #ffffff;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            background: rgba(94, 94, 94, 0.4);
+                            box-shadow: 0px 4px 0px rgba(107, 107, 107, 0.6);
+                        }
+                    }
+                }
+            }
+            .bankomat-buttons-wrapper {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 0.8vh;
+                margin-top: 1.2vh;
+                margin-left: 10vh;
+                .bankomat-button {
+                    display: flex;
+                    // justify-content: center;
+                    align-items: center;
+                    width: 35vh;
+                    height: 12vh;
+
+                    background: rgba(255, 255, 255, 0.05);
+
+                    transition: all 0.5s;
+                    fill: #2f74ce;
+                    svg {
+                        margin-left: 2.9vh;
+                    }
+                    span {
+                        margin-left: 2.3vh;
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 2.4vh;
+
+                        // text-align: center;
+
+                        color: #ffffff;
+                    }
+                    &:hover {
+                        background: #2c80ef;
+                        cursor: pointer;
+                        .bankomat-button {
+                            fill: #ffffff;
+                        }
+
+                        box-shadow: 0px 4px 0px #2f74ce;
+                    }
+                }
+            }
+        }
+    }
+    .bankomat-modal-wrapper {
+        @extend %center;
+        width: max-content;
+        h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2.4vh;
+
+            text-align: center;
+
+            color: #ffffff;
+        }
+        p {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: medium;
+            font-size: 2.2vh;
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .bankomat-modal-inputs {
+            display: block;
+            // margin: 0 auto;
+            input {
+                margin-top: 1.4vh;
+                display: block;
+                width: 41vh;
+                height: 8.9vh;
+                border: 0;
+                outline: 0;
+                padding-left: 3vh;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.05);
+                //
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+
+                color: rgba(255, 255, 255, 1);
+            }
+            input:first-child {
+                margin-left: 0;
+            }
+            input::placeholder {
+                color: rgba(255, 255, 255, 0.2);
+            }
+        }
+        .bankomat-modal-buttons {
+            display: block;
+            text-align: center;
+            .bankomat-modal-button {
+                position: relative;
+                margin-top: 1.4vh;
+                width: 43.8vh;
+                height: 10vh;
+                border-radius: 1vh;
+                background: linear-gradient(92.71deg, #2c80ef 1.29%, rgba(44, 128, 239, 0.36) 99.99%, #2c80ef 100%);
+                transition: all 0.5s;
+                span {
+                    @extend %center;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 2.4vh;
+
+                    color: #ffffff;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .bankomat-modal-button-close {
+                position: relative;
+                top: 1vh;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.4vh;
+                color: #ffffff80;
+
+                transition: all 0.5s;
+                text-decoration-line: underline;
+                &:hover {
+                    // text-decoration-line: none;
+                    cursor: pointer;
+                    color: #ffffffbb;
+                }
+            }
+            .bankomat-modal-button-close ::-webkit-outer-spin-button,
+            .bankomat-modal-button-close ::-webkit-inner-spin-button {
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none;
+                margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            }
+        }
+        .commission {
+            margin-top: 1vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2vh;
+
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    .bank-error-window {
+        z-index: 999;
+        @extend %center;
+        width: 600px;
+        height: 350px;
+
+        background: rgba(224, 52, 68, 0.95);
+        box-shadow: 0px 0px 20px #ff4a5b;
+        .bank-error-texts {
+            @extend %center;
+            h1 {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 4vh;
+
+                color: #ffffff;
+                text-align: center;
+            }
+            p {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 3vh;
+                width: max-content;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6);
+            }
+        }
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active до версии 2.1.8 */ {
+        transform: translateX(-60px);
+        opacity: 0;
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(255, 255, 255);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(236, 236, 236);
+    }
+
+    h1 {
+        cursor: none;
+    }
+
+    p {
+        cursor: none;
+    }
+}

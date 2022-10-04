@@ -1,0 +1,224 @@
+#autoschool {
+    .bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+    .bg2 {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        background: linear-gradient(107.39deg, rgba(16, 16, 28, 0.9) 0%, rgba(11, 11, 29, 0.9) 100.8%);
+    }
+    .text-center {
+        z-index: 12;
+        position: absolute;
+        width: 100%;
+        margin: 3vh auto;
+        text-align: center;
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.8vh;
+
+        letter-spacing: 0.02em;
+
+        color: #ffffff;
+    }
+    .autoschool-tabs-wrapper {
+        display: flex;
+        z-index: 12;
+        @extend %center;
+        .autoschool-tab {
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            position: relative;
+            width: 40vh;
+            height: 70vh;
+            margin-left: 3.8vh;
+            // background-image: url("https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png");
+            background-image: linear-gradient(187.34deg, rgba(18, 21, 34, 0.97) 1.21%, rgba(5, 7, 15, 0.9603) 94.3%),
+                url('img/test.png'); 
+            background-size: 40vh 70vh;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 4px rgba(47, 47, 47, 0.25);
+            border-radius: 1vh;
+            .autoschool-tab-logo {
+                width: 18vh;
+                margin: 14.5vh auto;
+            }
+            .autoschool-tab-texts {
+                text-align: center;
+                h1 {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 3.2vh;
+
+                    color: #ffffff;
+
+                    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                }
+                p {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1.8vh;
+
+                    color: rgba(255, 255, 255, 0.5);
+
+                    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                }
+            }
+            .autoschool-tab-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 2.9vh auto;
+                width: 20vh;
+                height: 6vh;
+                transition: all 0.5s;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 5px;
+                p {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 1.8vh;
+
+                    color: #ffffff;
+                }
+                &:hover {
+                    background: #2c80ef;
+                    // box-shadow: 0px 0px 20px #de1a3c;
+                }
+            }
+        }
+        .autoschool-tab:first-child {
+            margin-left: 0;
+        }
+    }
+    .autoschool-test-wrapper {
+        z-index: 12;
+        .test {
+            position: absolute;
+            width: 100%;
+            z-index: 23;
+            .type-img {
+                // position: absolute;
+                margin: 0 auto;
+                top: 1vh;
+                width: 10vh;
+                top: 10vh;
+                text-align: center;
+
+                z-index: 12;
+            }
+        }
+        .autoschool-test-container {
+            @extend %center;
+            z-index: 12;
+            h1 {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 3.2vh;
+
+                text-align: center;
+                margin-bottom: 2vh;
+
+                color: #33c75d;
+            }
+            h2 {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 3.2vh;
+                text-align: center;
+
+                color: #ffffff;
+                margin-bottom: 4vh;
+            }
+            .autoschool-test-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 2.4vh 2.4vh;
+                .autoschool-test-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 25vh;
+                    height: 8vh;
+
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 0.5vh;
+                    transition: all 0.5s;
+                    p {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 2.4vh;
+
+                        color: #ffffff;
+                    }
+                    &:hover {
+                        background: #2c80ef;
+                    }
+                }
+            }
+        }
+        .test-text {
+            width: 100%;
+            z-index: 12;
+            position: absolute;
+            bottom: 3vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2.4vh;
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.3);
+        }
+    }
+    .bus-prompt-wrapper {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        bottom: 3vh;
+        right: 4.4vh;
+        opacity: 0.8;
+        z-index: 1;
+        .bus-prompt-button {
+            position: relative;
+            width: 11.5vh;
+            height: 4.1vh;
+
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            span {
+                @extend %center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.4vh;
+
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+        p {
+            margin-left: 1.5vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.8vh;
+
+            color: rgba(255, 255, 255, 0.5);
+
+            // opacity: 0.5;
+        }
+    }
+}

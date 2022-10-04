@@ -1,0 +1,88 @@
+{
+  "_from": "vue-radial-progress",
+  "_id": "vue-radial-progress@0.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-F4eA9IFqoY5ZPBJNsqIu3C8J6TQ/5aQxUOAy+6wjVOvK+ljjs/8g8gUpy5CE2/THDH68+avwqov3ibaG1AyZSQ==",
+  "_location": "/vue-radial-progress",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-radial-progress",
+    "name": "vue-radial-progress",
+    "escapedName": "vue-radial-progress",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-radial-progress/-/vue-radial-progress-0.3.2.tgz",
+  "_shasum": "3a13f94435c3a5010935c1ff3d4ee5c93bd46d15",
+  "_spec": "vue-radial-progress",
+  "_where": "D:\\Night-RP\\CEF-VUE",
+  "author": {
+    "name": "wyzant"
+  },
+  "bugs": {
+    "url": "https://github.com/wyzantinc/vue-radial-progress/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "A radial progress bar component for Vue.js",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "acorn": "^7.3.1",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "less": "^3.11.3",
+    "less-loader": "^5.0.0",
+    "terser-webpack-plugin": "^2.3.7",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-loader": "^15.9.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "homepage": "https://github.com/wyzantinc/vue-radial-progress/blob/master/README.md",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "radial",
+    "progress",
+    "bar",
+    "progress bar",
+    "radial progress",
+    "radial progress bar"
+  ],
+  "license": "MIT",
+  "main": "src/main.js",
+  "name": "vue-radial-progress",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyzantinc/vue-radial-progress.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "webpack-dev-server --inline --hot --quiet",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "version": "0.3.2"
+}

@@ -1,0 +1,10 @@
+node_modules
+data
+altv-server.exe
+libnode.dll
+package-lock.json
+update.json
+server.log
+crashdumps/
+cache/
+resourses/vehicles

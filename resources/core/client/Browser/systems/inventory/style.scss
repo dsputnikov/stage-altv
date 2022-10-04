@@ -1,0 +1,254 @@
+#inventory {
+    .bg {
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .main_wrapper {
+        @extend %center;
+        display: flex;
+        align-items: center;
+        .list-slots-wrapper {
+            display: block;
+            float: right;
+            .list-slots-texts {
+                display: flex;
+                align-items: baseline;
+                width: 54vh;
+                h1 {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2.4vh;
+                    margin-bottom: 2vh;
+
+                    color: #ffffff;
+                }
+                p {
+                    margin-left: auto;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 1.4vh;
+
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+            .slots {
+                width: 59.2vh;
+                height: 29.4vh;
+                margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                .slot {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 7vh;
+                    height: 7vh;
+                    background: rgba(255, 255, 255, 0.05);
+                    box-sizing: border-box;
+                    margin: 0.4vh 0.4vh;
+                    .item {
+                        // @extend %center;
+                        background-position: center;
+                        background-size: 5vh;
+                        width: 5vh;
+                        height: 5vh;
+                        img {
+                            // @extend %center;
+                            width: 3vh;
+                        }
+                        color: #c900c9;
+                    }
+                }
+                .fast-slot {
+                    position: relative;
+                    width: 7vh;
+                    height: 7vh;
+                    background: rgba(255, 255, 255, 0.05);
+                    margin: 0.4vh 0.4vh;
+                    .item {
+                        @extend %center;
+                        width: 5vh;
+                        height: 5vh;
+                        z-index: 5;
+                        background-size: 4vh;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        // img {
+                        //     width: 5vh;
+                        // }
+                    }
+                }
+            }
+        }
+        .player-skin-wrapper {
+            float: left;
+            margin-right: 9.1vh;
+            .player-skin-texts {
+                margin-bottom: 3vh;
+                h1 {
+                    margin-bottom: 1vh;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 3.2vh;
+
+                    color: #ffffff;
+                }
+                p {
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 2.4vh;
+
+                    color: #ffffff;
+                }
+            }
+            .player-skin {
+                display: flex;
+                align-items: center;
+                .player-skin-slots {
+                    display: block;
+                    margin: 0 0.5vh;
+                    .player-skin-slot {
+                        position: relative;
+                        width: 7vh;
+                        height: 7vh;
+                        background: rgba(255, 255, 255, 0.05);
+                        margin-top: 1.5vh;
+                        background-position: center;
+                        .item {
+                            @extend %center;
+                            width: 5vh;
+                            height: 5vh;
+                            z-index: 5;
+                            background-size: 4vh;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+                        img {
+                            @extend %center;
+                        }
+                    }
+                }
+            }
+        }
+        .modal-window-wrapper {
+            .modal-window {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+
+                background: linear-gradient(
+                    151.42deg,
+                    rgba(72, 72, 72, 0.5) -0.93%,
+                    rgba(31, 31, 31, 0.5) 100.86%,
+                    rgba(133, 120, 120, 0.5) 100.86%
+                );
+                padding: 2.5vh 2.5vh;
+                z-index: 5;
+                .modal-img {
+                    display: block;
+                    text-align: center;
+                    margin-top: 0vh;
+                    img {
+                        width: 7vh;
+                        // height: 11vh;
+                    }
+                    h1 {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 1.9vh;
+
+                        color: #ffffff;
+                    }
+                    p {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 1.4vh;
+
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+                }
+                .modal-desc {
+                    margin-top: 2.4vh;
+                    text-align: center;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 1.2vh;
+                    width: 19.5vh;
+
+                    color: rgba(255, 255, 255, 0.5);
+                }
+                hr {
+                    margin-top: 3vh;
+                    opacity: 0.1;
+                    width: 100%;
+                    background: rgba(255, 255, 255, 0.15);
+                }
+                .modal-buttons-wrapper {
+                    display: flex;
+                    margin-top: 1.5vh;
+                    .modal-buttons-btn {
+                        position: relative;
+                        width: 9vh;
+                        height: 3.5vh;
+                        span {
+                            @extend %center;
+                            font-family: Gilroy;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 1.2vh;
+
+                            color: #ffffff;
+                        }
+                    }
+                    .modal-buttons-use {
+                        background: #2c80ef;
+                    }
+                    .modal-buttons-drop {
+                        margin-left: 1.2vh;
+                        background: #6b6b6b;
+                    }
+                }
+            }
+        }
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active до версии 2.1.8 */ {
+        transform: translateX(-60px);
+        opacity: 0;
+    }
+
+    .slide-fade2-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade2-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade2-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active до версии 2.1.8 */ {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+}

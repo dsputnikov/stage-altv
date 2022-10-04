@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CHandlingDataMgr>
+  <HandlingData>
+    <Item type="CHandlingData">
+      <handlingName>porsche2021</handlingName>
+      <fMass value="1800.0" />
+      <fInitialDragCoeff value="7.000" />
+      <fPercentSubmerged value="85.000" />
+      <vecCentreOfMassOffset x="0.000" y="0.000" z="0.000" />
+      <vecInertiaMultiplier x="1.000" y="1.300" z="1.500" />
+      <fDriveBiasFront value="0.300" />
+      <nInitialDriveGears value="6" />
+      <fInitialDriveForce value="0.370" />
+      <fDriveInertia value="1.000" />
+      <fClutchChangeRateScaleUpShift value="4.500" />
+      <fClutchChangeRateScaleDownShift value="4.500" />
+      <fInitialDriveMaxFlatVel value="310.0" />
+      <fBrakeForce value="1.100" />
+      <fBrakeBiasFront value="0.450" />
+      <fHandBrakeForce value="0.700" />
+      <fSteeringLock value="35.000" />
+      <fTractionCurveMax value="2.675" />
+      <fTractionCurveMin value="2.580" />
+      <fTractionCurveLateral value="22.5000" />
+      <fTractionSpringDeltaMax value="0.150" />
+      <fLowSpeedTractionLossMult value="1.500" />
+      <fCamberStiffnesss value="0.000" />
+      <fTractionBiasFront value="0.485" />
+      <fTractionLossMult value="1.000" />
+      <fSuspensionForce value="2.600" />
+      <fSuspensionCompDamp value="1.500" />
+      <fSuspensionReboundDamp value="2.200" />
+      <fSuspensionUpperLimit value="0.080" />
+      <fSuspensionLowerLimit value="-0.100" />
+      <fSuspensionRaise value="0.000" />
+      <fSuspensionBiasFront value="0.500" />
+      <fAntiRollBarForce value="0.900" />
+      <fAntiRollBarBiasFront value="0.600" />
+      <fRollCentreHeightFront value="0.410" />
+      <fRollCentreHeightRear value="0.4100" />
+      <fCollisionDamageMult value="0.200" />
+      <fWeaponDamageMult value="1.000" />
+      <fDeformationDamageMult value="0.200" />
+      <fEngineDamageMult value="1.500" />
+      <fPetrolTankVolume value="65.0000" />
+      <fOilVolume value="5.000" />
+      <fSeatOffsetDistX value="0.000" />
+      <fSeatOffsetDistY value="0.000" />
+      <fSeatOffsetDistZ value="0.000" />
+      <nMonetaryValue value="80000" />
+      <strModelFlags>440010</strModelFlags>
+      <strHandlingFlags>0</strHandlingFlags>
+      <strDamageFlags>0</strDamageFlags>
+      <AIHandling>AVERAGE</AIHandling>
+      <fPopUpLightRotation value="-68.000"/>
+      <SubHandlingData>
+        <Item type="CCarHandlingData">
+          <fBackEndPopUpCarImpulseMult value="0.075000" />
+          <fBackEndPopUpBuildingImpulseMult value="0.030000" />
+          <fBackEndPopUpMaxDeltaSpeed value="0.250000" />
+        </Item>
+        <Item type="NULL" />
+        <Item type="NULL" />
+      </SubHandlingData>
+    </Item>
+  </HandlingData>
+</CHandlingDataMgr>

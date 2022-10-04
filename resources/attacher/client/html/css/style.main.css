@@ -1,0 +1,102 @@
+* {
+	font-family: Verdana;
+	font-size: 10px;
+}
+
+#form {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 260px;
+	background-color: rgba(0, 0, 0, 0.589);	
+	padding: 20px;
+	color: white;
+	border-radius: 10px;
+}
+
+#form div {
+	margin-bottom: 5px;
+}
+
+#form input, select, textarea {
+	border: 1px solid white;
+	border-radius: 5px;
+	resize: none;
+	height: 14px;
+	margin: 0px 2px 4px 0px;
+}
+
+textarea {
+	height: 30px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.floating {
+	float: left;
+}
+
+.spacer {
+	height: 15px;
+}
+
+.positioning-field {
+	width: 16%;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab {
+    width: 48%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.tab-active {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.tab-content {
+	height: 520px;
+}
+
+.slider {
+	margin: 0px;
+	width: 82%;
+	-webkit-appearance: none; 
+	border-radius: 5px;  
+	margin-bottom: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 50%; 
+	width: 15px;
+	height: 15px;
+	background: rgb(82, 163, 82);
+	cursor: pointer; 
+}
+
+.title {
+	font-weight: bold;
+	font-size: 13px;
+	border-bottom: 1px solid white;
+	margin-top: 5px;
+}
+
+.button {
+	background-color: #808080;
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 5px;
+}

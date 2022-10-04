@@ -1,0 +1,211 @@
+#mower {
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .farm-type-work-wrapper {
+        @extend %center;
+        h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 7.2vh;
+
+            text-align: center;
+
+            color: #ffffff;
+
+            text-shadow: 0px 6px 0px #aaaaaa;
+        }
+        .farm-type-work-btns {
+            margin: 5.5vh 3vh;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1vw;
+            .farm-type-work-btn {
+                position: relative;
+                // background: #2c80ef;
+                background: rgba(255, 255, 255, 0.05);
+                width: 350px;
+                height: 120px;
+                transition: all .5s;
+                span {
+                    @extend %center;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 2.4vh;
+                    width: max-content;
+                    color: #ffffff;
+                }
+                &:hover {
+                    background: #2c80ef;
+                    box-shadow: 0px 4px 0px #2f74ce;
+                }
+            }
+        }
+    }
+    .farm-info-wrapper {
+        @extend %center;
+        display: block;
+        h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 7.2vh;
+
+            text-align: center;
+
+            color: #ffffff;
+
+            text-shadow: 0px 6px 0px #aaaaaa;
+        }
+        p {
+            margin: 2.1vh auto;
+            max-width: 38vh;
+
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.4vh;
+            text-align: center;
+
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .farm-info-button {
+            position: relative;
+            margin: 0 auto;
+            width: 35vh;
+            height: 12vh;
+            margin-top: 6.4vh;
+            transition: all .5s;
+            span {
+                @extend %center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.8vh;
+
+                color: #ffffff;
+            }
+        }
+        .start {
+            background: #2c80ef;
+            &:hover {
+                background: #2a7be6;
+                box-shadow: 0px 4px 0px #2f74ce;
+            }
+        }
+        .stop {
+            background: #6B6B6B;
+            &:hover {
+                background: #5f5f5f;
+                box-shadow: 0px 4px 0px #635D5D;
+            }
+        }
+        h2 {
+            margin-top: 1vh;
+            text-align: center;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2.4vh;
+
+            color: #ffffff;
+        }
+    }
+    .farm-hueta-wrapper {
+        @extend %vcenter;
+        left: 17.5vh;
+        .farm-hueta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 310px;
+            height: 100px;
+            margin-top: 1.7vh;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            span {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 2.2vh;
+
+                color: #ffffff;
+            }
+        }
+        .farm-hueta:first-child {
+            margin-top: 0;
+        }
+    }
+    .farm-prompt-wrapper {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 4vh;
+        left: 4.4vh;
+        opacity: 0.8;
+        .autosalon-prompt-button {
+            position: relative;
+            width: 11.5vh;
+            height: 4.1vh;
+
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            span {
+                @extend %center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.4vh;
+
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+        p {
+            margin-left: 1.5vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.8vh;
+
+            color: rgba(255, 255, 255, 0.5);
+
+            // opacity: 0.5;
+        }
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade-enter,
+    .slide-fade-leave-to {
+        transform: translateX(-60px);
+        opacity: 0;
+    }
+
+    .slide-fade2-enter-active {
+        transition: all 0.3s ease;
+    }
+    .slide-fade2-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+    .slide-fade2-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active до версии 2.1.8 */ {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,67 @@
+@import "variables.scss";
+
+@import "../systems/wholescreen/wholescreen.scss";
+@import "../systems/auth/auth.scss";
+@import "../systems/pedCreator/style.scss";
+@import "../systems/charSelector/selector.scss";
+@import "../systems/inventory/style.scss";
+
+// HUD
+@import "../systems/Hud/styles/main.scss";
+@import "../systems/Hud/styles/chat.scss";
+
+// Инвентарь
+
+@import "../systems/menu/menu.scss";
+@import "../systems/inventory/style.scss";
+
+// Автосалон
+
+@import "../systems/Autosalon/style.scss";
+
+// Банк
+@import "../systems/bank/bank.scss";
+@import "../systems/bank/bankomat.scss";
+
+// Ферма
+@import "../systems/jobs/farm/farm.scss";
+@import "../systems/jobs/bus/bus.scss";
+@import "../systems/jobs/mower/mower.scss";
+
+// Taxi
+@import "../systems/jobs/taxi/taxi.scss";
+
+// Дома
+@import "../systems/houses/houses.scss";
+
+//
+@import "../systems/autoschool/autoschool.scss";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+user-select:none .disable {
+    display: none;
+}
+
+::selection {
+    background: transparent;
+}
+
+// * {
+//     user-select: none !important;
+
+//     &::-webkit-scrollbar {
+//         width: 0;
+//         height: 0;
+//     }
+// }
+
+[v-cloak] {
+    display: none;
+}
+
+.opacity1 {
+    opacity: 1;
+}

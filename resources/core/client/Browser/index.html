@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <!-- Авторизация -->
+    <div id="auth" v-show="active" v-cloak>
+        <img src="./systems/auth/img/bg.png" class="bg_1" v-show="state == 1">
+        <img src="./systems/auth/img/bg.png" class="bg_1" v-show="state == 2">
+        <transition name="fade">
+            <div class="login_wrapper" v-show="state == 1">
+                <div class="form_login">
+                    <h1>Авторизация</h1>
+                    <div class="inputs">
+                        <input type="text" v-model="Login.login" placeholder="Введите логин">
+                        <input type="password" v-model="Login.password" placeholder="Введите пароль">
+                    </div>
+                    <div class="button" @click="loginBtn"><span>АВТОРИЗОВАТЬСЯ</span></div>
+                    <div class="down_btns">
+                        <input type="checkbox" id="checkbox" v-model="Login.checked">
+                        <label for="checkbox" class="label">Запомнить</label>
+                        <p>Забыли пароль?</p>
+                    </div>
+                    <div class="form_login-register">
+                        <h1>Все еще нет аккаунта?</h1>
+                        <div class="form_login-register-btn" @click="setState(2)">
+                            <p>РЕГИСТРАЦИЯ</p>
+                        </div>
+                        <img src="./systems/auth/img/arrow.png" alt="">
+                    </div>
+                    <div class="error">{{ error.text }}</div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="login_wrapper" v-show="state == 2">
+                <div class="form_login">
+                    <h1>Регистрация</h1>
+                    <div class="inputs">
+                        <input type="text" v-model="Register.login" placeholder="Введите логин">
+                        <input type="text" v-model="Register.email" placeholder="Введите e-mail">
+                        <input type="password" v-model="Register.password" placeholder="Введите пароль">
+                        <input type="password" v-model="Register.rpassword" placeholder="Повторите пароль">
+                    </div>
+                    <div class="form_login-register" style="top: 50vh;">
+                        <h1>Уже есть аккаунт?</h1>
+                        <div class="form_login-register-btn" @click="setState(1)">
+                            <p>АВТОРИЗАЦИЯ</p>
+                        </div>
+                        <img src="./systems/auth/img/arrow.png" alt="">
+                    </div>
+                    <div class="button" @click="registerBtn"><span>ЗАРЕГИСТРИРОВАТЬСЯ</span></div>
+                    <div class="error">{{ error.text }}</div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <!-- Создание персонажа -->
+    <div id="pedCreator" v-show="active" style="z-index: 150;" v-cloak>
+        <img src="./systems/pedCreator/img/bg.png" class="bg">
+        <div class="main_wrapper">
+            <div class="up"><span>Создание персонажа</span></div>
+            <div class="body_flex">
+                <div class="body">
+                    <div class="body_wrapper" v-if="show == 1">
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Придумайте имя</p>
+                            </div>
+                            <div class="input">
+                                <input type="text" placeholder="Введите ваше имя" v-model="data.name">
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Придумайте фамилию</p>
+                            </div>
+                            <div class="input">
+                                <input type="text" placeholder="Введите Вашу фамилию" v-model="data.surname">
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Пол персонажа</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ genders[data.gender] }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="changeGender(2)"><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="btn" @click="changeGender(1)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Родители (мать и отец)</p>
+                            </div>
+                            <div class="parents_wrapper">
+                                <div class="parent_w_img">
+                                    <!-- <img src="./systems/events/creator/images/bg.png" alt=""> -->
+                                    <img :src="parents.fathers[parents.fatherIndex].image" class="img_parent">
+                                </div>
+                                <div class="parent_w_img">
+                                    <!-- <img src="./systems/events/creator/images/bg.png" alt=""> -->
+                                    <img :src="parents.mothers[parents.motherIndex].image" class="img_parent">
+                                </div>
+                            </div>
+                            <div class="parrent_switcher_wrapper">
+                                <div class="parrent_switcher">
+                                    <div class="sbtn" @click='clickLeft(1)'><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="sbody"><span>{{ parents.fathers[parents.fatherIndex].name }}</span>
+                                    </div>
+                                    <div class="sbtn" @click='clickRight(1)'><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                                <div class="parrent_switcher" style="margin-left: -0.5vh;">
+                                    <div class="sbtn" @click='clickLeft(2)'><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="sbody"><span>{{ parents.mothers[parents.motherIndex].name }}</span>
+                                    </div>
+                                    <div class="sbtn" @click='clickRight(2)'><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Схожесть с родителями</p>
+                            </div>
+                            <div class="slider_wrapper">
+                                <p>Папа</p>
+                                <input type="range" v-model="data.faceMix">
+                                <p>Мама</p>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Оттенок кожи</p>
+                            </div>
+                            <div class="slider_wrapper">
+                                <p>Папа</p>
+                                <input type="range" v-model="data.skinMix">
+                                <p>Мама</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body_wrapper" v-if="show == 2">
+                        <div class="parametr" v-for="(item,i) in structureLabels">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>{{ item }}</p>
+                            </div>
+                            <div class="slider_wrapper">
+                                <p>Меньше</p>
+                                <input type="range" min="-1" max="1" step="0.1" class="slider"
+                                    v-model="data.structure[i]">
+                                <p>Больше</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body_wrapper" v-if="show == 3">
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Волосы</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ appearance.maleHair[appearance.hairIndex].name }}</p>
+                                <p v-else>{{ appearance.femaleHair[appearance.hairIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(5)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(5)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Цвет волос</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ colors[appearance.haircolorindex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(6)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(6)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr" v-if="data.gender == 0">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Борода</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ appearance.beards[appearance.beardIndex].name}}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(7)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(7)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr" v-if="data.gender == 0">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Цвет бороды</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ colors[appearance.beardColorIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(14)"><img
+                                            src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(14)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Брови</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ appearance.brows[appearance.browIndex].name}}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(3)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(3)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Цвет глаз</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p>{{ appearance.eyes[appearance.eyeIndex].name}}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(4)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(4)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body_wrapper" v-if="show == 4">
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Головной убор</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.head[clothes.headIndex].name }}</p>
+                                <p v-else>{{ clothes.female.head[clothes.headIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(8)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(8)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Очки</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.glasses[clothes.glassesIndex].name }}</p>
+                                <p v-else>{{ clothes.female.glasses[clothes.glassesIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(13)"><img
+                                            src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(13)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Верхняя одежда</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.tops[clothes.topIndex].name }}</p>
+                                <p v-else>{{ clothes.female.tops[clothes.topIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(9)"><img src="./systems/pedCreator/img/left.svg">
+                                    </div>
+                                    <div class="btn" @click="clickRight(9)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Футболка</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.undershits[clothes.undershitsIndex].name }}
+                                </p>
+                                <p v-else>{{ clothes.female.undershits[clothes.undershitsIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(10)"><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="btn" @click="clickRight(10)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Штаны</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.legs[clothes.legsIndex].name }}</p>
+                                <p v-else>{{ clothes.female.legs[clothes.legsIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(11)"><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="btn" @click="clickRight(11)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parametr">
+                            <div class="parametr_name">
+                                <div class="strip"></div>
+                                <p>Обувь</p>
+                            </div>
+                            <div class="switcher_wrapper">
+                                <p v-if="data.gender == 0">{{ clothes.male.shoes[clothes.shoesIndex].name }}</p>
+                                <p v-else>{{ clothes.female.shoes[clothes.shoesIndex].name }}</p>
+                                <div class="switcher">
+                                    <div class="btn" @click="clickLeft(12)"><img
+                                            src="./systems/pedCreator/img/left.svg"></div>
+                                    <div class="btn" @click="clickRight(12)"><img
+                                            src="./systems/pedCreator/img/right.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_buttons">
+                        <div class="create_btn" @click="createCharacter"><span>Создать персонажа</span></div>
+                        <div class="random_btn" @click="randomBtn"><img src="./systems/pedCreator/img/random.svg"></div>
+                    </div>
+                </div>
+                <div class="type_wrapper">
+                    <div class="type_btn" style="margin-top: 0;" @click="setOpen(1)"><img
+                            src="./systems/pedCreator/img/parents.svg" alt=""></div>
+                    <div class="type_btn" @click="setOpen(2)"><img src="./systems/pedCreator/img/dnk.svg" alt="">
+                    </div>
+                    <div class="type_btn" @click="setOpen(3)"><img src="./systems/pedCreator/img/hair.svg" alt="">
+                    </div>
+                    <div class="type_btn" @click="setOpen(4)"><img src="./systems/pedCreator/img/clothes.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="bank-error-window" v-show="error.active" @click="closeError">
+                <div class="bank-error-texts">
+                    <h1>ОШИБКА</h1>
+                    <p>{{ error.text }}</p>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <!-- Выбор персонажа -->
+    <div id="charSelector" v-show="active" v-cloak style="display: none;">
+        <img src="./systems/charSelector/img/bg.png" class="bg">
+        <h1 class="main-text">ВЫБЕРИТЕ <span style="color: #60FE8C;">ПЕРСОНАЖА</span></h1>
+        <div class="select-wrapper">
+            <!-- Персонаж 1 -->
+            <div class="select-block" @click="selectCharacter(0)" v-if="char1exist == true" id="0"
+                style="background: linear-gradient(269.16deg, #60fe8c -4.56%, rgba(67, 205, 106, 0.72) 99.28%);">
+                <img src="./systems/charSelector/img/lvl.png" alt="">
+                <p>{{ characters[0].Name }} {{ characters[0].Surname }}</p>
+            </div>
+            <div class="select-block" style="justify-content:center;" v-else @click="createCharacter">
+                <p style="margin-left: 0;">Создать персонажа</p>
+            </div>
+            <!-- Персонаж 2 -->
+            <div class="select-block" @click="selectCharacter(1)" v-if="char2exist == true" id="1">
+                <img src="./systems/charSelector/img/lvl.png" alt="">
+                <p>{{ characters[1].Name }} {{ characters[1].Surname }}</p>
+            </div>
+            <div class="select-block" style="justify-content:center;" v-else @click="createCharacter">
+                <p style="margin-left: 0;">Создать персонажа</p>
+            </div>
+            <!-- Персонаж 3 -->
+            <div class="select-block" @click="selectCharacter(2)" v-if="char3exist == true" id="2">
+                <img src="./systems/charSelector/img/lvl.png" alt="">
+                <p>{{ characters[2].Name }} {{ characters[2].Surname }}</p>
+            </div>
+            <div class="select-block" style="justify-content:center;" v-else @click="createCharacter">
+                <p style="margin-left: 0;">Создать персонажа</p>
+            </div>
+        </div>
+        <div class="stat-wrapper" v-if="char1exist">
+            <div class="stat-block">
+                <div class="stat-block-texts">
+                    <h1>Денег на руках:</h1>
+                    <p>${{ characters[currentCharacter].money}}</p>
+                </div>
+                <img src="./systems/charSelector/img/money.png" alt="">
+            </div>
+            <div class="stat-block">
+                <div class="stat-block-texts">
+                    <h1>Денег в банке:</h1>
+                    <p>Тут по сложнее</p>
+                </div>
+                <img src="./systems/charSelector/img/bank.png" alt="">
+            </div>
+            <div class="stat-block">
+                <div class="stat-block-texts">
+                    <h1>Организация:</h1>
+                    <p>Не состоит</p>
+                </div>
+                <img src="./systems/charSelector/img/faction.png" alt="">
+            </div>
+            <div class="stat-block">
+                <div class="stat-block-texts">
+                    <h1>Должность:</h1>
+                    <p>Нет</p>
+                </div>
+                <img src="./systems/charSelector/img/position.png" alt="">
+            </div>
+            <div class="stat-block">
+                <div class="stat-block-texts">
+                    <h1>Работа:</h1>
+                    <p>Таксист</p>
+                </div>
+                <img src="./systems/charSelector/img/job.png" alt="">
+            </div>
+        </div>
+        <div class="playbtn-wrapper" v-if="char1exist">
+            <div class="playbtn" @click="playButton">
+                <img src="./systems/charSelector/img/play.svg" alt="">
+                <span>Начать играть</span>
+            </div>
+        </div>
+    </div>
+    <!-- Худ -->
+    <div id="HUD_main" v-show="active" v-cloak>
+        <div class="right_up">
+            <div class="logo_and_info">
+                <div class="money_wrapper">
+                    <h1>${{ money }}</h1>
+                    <div class="money-bank">
+                        <img src="./systems/Hud/img/bank.svg" alt="">
+                        <p>${{ bank }}</p>
+                    </div>
+                </div>
+                <div class="info_server">
+                    <div class="info_items">
+                        <img src="./systems/Hud/img/online.svg" alt="">
+                        <p>{{server.online}}</p>
+                    </div>
+                    <div class="info_items">
+                        <img src="./systems/Hud/img/login.svg" alt="">
+                        <p>#{{server.login}}</p>
+                    </div>
+                    <div class="info_items">
+                        <img src="./systems/Hud/img/time.svg" alt="">
+                        <div class="time_wrapper">
+                            <p>{{ server.time }}</p>
+                            <span>{{ server.date }}</span>
+                        </div>
+                    </div>
+                    <img src="./systems/Hud/img/Logo.png" class="logo">
+                </div>
+            </div>
+
+        </div>
+        <div class="hints">
+            <div class="hint_wrapper" v-for="item in hints">
+                <div class="hint">
+                    <p>{{ item.key }}</p>
+                </div>
+                <h1>{{ item.text }}</h1>
+            </div>
+        </div>
+        <div class="notify">
+            <transition-group name="slide-fade">
+                <div class="notify_wrapper" v-for="(item,i) in notify.notifys" v-bind:style="{ background: item.color }"
+                    :key="i" v-html>
+                    <img src="./systems/Hud/img/notify/succes.svg" v-if="item.type == 1">
+                    <img src="./systems/Hud/img/notify/error.svg" v-if="item.type == 2">
+                    <img src="./systems/Hud/img/notify/info.svg" v-if="item.type == 3">
+                    <div class="texts">
+                        <h1>{{ item.top }}</h1>
+                        <p>{{ item.text }}</p>
+                    </div>
+                </div>
+            </transition-group>
+        </div>
+        <div class="location" v-bind:style="{ top: locationPosition.top + 'px', left: locationPosition.left + 'px'}">
+            <div class="location_wrapper">
+                <img src="./systems/Hud/img/compass.svg" alt="">
+                <div class="location_text_wrapper">
+                    <h1>{{ locationPosition.location }}</h1>
+                    <p>{{ locationPosition.zone }}</p>
+                </div>
+            </div>
+            <!-- <div class="player_indicators">
+                <img src="./systems/Hud/img/eat.svg" alt="">
+                <img src="./systems/Hud/img/water.svg" alt="">
+            </div> -->
+        </div>
+        <transition name="slide-fade">
+            <div class="use-button" v-show="usebutton.active">
+                <div class="use-button-wrapper">
+                    <div class="use-button-btn">
+                        <p>{{ usebutton.button }}</p>
+                    </div>
+                    <span>{{ usebutton.text }}</span>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <!-- Спидометр -->
+    <div id="speedometer" v-show="active" v-cloak>
+        <img src="./systems/Hud/img/speed/bg.svg" class="bg">
+        <div class="main">
+            <div class="speed_wrapper">
+                <h1>{{ speed }}</h1>
+                <p>КМ/Ч</p>
+            </div>
+            <div class="down_wrapper">
+                <div class="parametr">
+                    <img src="./systems/Hud/img/speed/fuel.svg" class="icon_speed">
+                    <p>46L</p>
+                </div>
+                <div class="parametr">
+                    <img src="./systems/Hud/img/speed/red.svg" alt="">
+                    <img src="./systems/Hud/img/speed/engine.svg" class="icon_speed">
+                </div>
+                <div class="parametr">
+                    <img src="./systems/Hud/img/speed/green.svg" alt="">
+                    <img src="./systems/Hud/img/speed/headlight.svg" class="icon_speed">
+                </div>
+                <div class="parametr">
+                    <img src="./systems/Hud/img/speed/green.svg" alt="">
+                    <img src="./systems/Hud/img/speed/door.svg" class="icon_speed">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Чат -->
+    <div id="HUD_chat" v-show="active" v-cloak>
+        <div class="chat_wrapper">
+            <div class="messages">
+                <p v-for="msg in messages" v-html="msg">{{ msg }}</p>
+            </div>
+        </div>
+        <input class="input" v-show="open" v-model="message" v-on:keyup.enter="sendMessage" v-focus="open == true">
+        <div class="buttons" v-show="open">
+            <span v-bind:style="{ 'border-bottom': border_color1 }">Обычный</span>
+            <span v-bind:style="{ 'border-bottom': border_color2 }">Реальный</span>
+            <span v-bind:style="{ 'border-bottom': border_color3 }">Ролеплей</span>
+            <span v-bind:style="{ 'border-bottom': border_color4 }">Рация</span>
+        </div>
+    </div>
+    <!-- Автосалон -->
+    <div id="autosalon" v-show="active" v-cloak>
+        <img src="./systems/Autosalon/img/bg.png" class="bg" v-show="open">
+        <!-- <vue-slider></vue-slider> -->
+        <div class="autosalon-prompt-wrapper" v-show="open">
+            <div class="autosalon-prompt-button"><span>ESC</span></div>
+            <p>выйти из автосалона</p>
+        </div>
+        <div class="main-buttons-wrapper" v-show="open">
+            <div class="main-buttons-texts-wrapper">
+                <div class="main-buttons-texts">
+                    <h1>{{ vehicle }}</h1>
+                    <p>${{ price }}</p>
+                </div>
+            </div>
+            <div class="main-buttons-buttons">
+                <div class="main-buttons-button main-buttons-button-test" @click="testDriveStart">
+                    <span>Тест-драйв</span>
+                </div>
+                <div class="main-buttons-button main-buttons-button-buy" @click="buyButton"><span>Купить</span></div>
+            </div>
+        </div>
+        <div class="autosalon-type-text-wrapper" v-show="open">
+            <p>Автосалон</p>
+            <h1>{{ currentSalon }}</h1>
+        </div>
+        <div class="list-vehicles-wrapper" v-show="open">
+            <div class="list-vehicles-button" v-for="(item,i) in vehicles" @click="selectVehicle(i)" :key="i"><span>{{
+                    item.name }}</span></div>
+        </div>
+        <div class="right-side-wrapper" v-show="open">
+            <div class="right-side-profile-wrapper">
+                <div class="right-side-profile-progress" v-for="item in profile">
+                    <div class="right-side-profile-texts">
+                        <img :src="item.img" alt="">
+                        <h1>{{ item.name }}</h1>
+                        <p>{{item.number}}</p>
+                    </div>
+                    <div class="right-side-profile-progress-wrapper">
+                        <div class="right-side-profile-progress-color" v-bind:style="{width: item.width + '%'}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side-colors-wrapper">
+                <div class="right-side-colors-container">
+                    <h1>Доп. цвет</h1>
+                    <div class="right-side-colors">
+                        <div class="right-side-color" v-for="(item,i) in colors"
+                            v-bind:style="{ background: item.color }" @click="changeColor2(i)"></div>
+                    </div>
+                </div>
+                <div class="right-side-colors-container">
+                    <h1>Основной цвет</h1>
+                    <div class="right-side-colors">
+                        <div class="right-side-color" v-for="(item,i) in colors"
+                            v-bind:style="{ background: item.color }" @click="changeColor1(i)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="modal-window-wrapper" v-show="modal">
+                <img src="./systems/Autosalon/img/bg2.png" class="modal-window-bg">
+                <div class="autosalon-prompt-wrapper">
+                    <div class="autosalon-prompt-button" style="width: 11vh;"><span>BACKSPACE</span></div>
+                    <p>закрыть окно</p>
+                </div>
+                <div class="modal-window-container">
+                    <h1>Выберете способ оплаты:</h1>
+                    <div class="modal-window-buttons">
+                        <div class="modal-window-button" @click="buyVehicle(2)">
+                            <svg width="29" height="29" viewBox="0 0 29 29" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                    <path
+                                        d="M27.6322 5.51425L10.4835 1.88511C9.758 1.73161 9.03887 2.1997 8.88537 2.92524L8.55957 5.01894L28.3462 9.20611L28.672 7.11241C28.8255 6.38715 28.3577 5.66779 27.6322 5.51425Z"
+                                        fill="#2C80EF" class="modal-svg" />
+                                    <path
+                                        d="M20.4207 9.65034C20.2204 8.92902 19.4666 8.50265 18.7455 8.70263L15.49 9.60637L7.81552 7.98218L6.97149 11.9701L1.69793 13.4338C0.976884 13.6339 0.550521 14.3877 0.750503 15.1088L3.72246 25.8183C3.92276 26.5394 4.67661 26.966 5.39766 26.7657L22.4452 22.0349C23.1663 21.8346 23.5926 21.081 23.3926 20.3596L22.8825 18.5211L24.7944 18.9254C25.52 19.0791 26.2391 18.6111 26.3926 17.8855L27.6022 12.1694L20.7154 10.7121L20.4207 9.65034ZM22.3894 15.0934L22.811 13.1008C22.8744 12.8024 23.1702 12.61 23.4685 12.673L25.4611 13.0949C25.7597 13.1582 25.9521 13.4537 25.8891 13.7523L25.4675 15.7449C25.4042 16.0433 25.1084 16.236 24.8101 16.1727L22.8175 15.7511C22.5186 15.6875 22.3261 15.3917 22.3894 15.0934ZM1.99459 14.5026L6.7123 13.1938L17.8437 10.1047L19.0415 9.77195C19.0634 9.76605 19.0852 9.76326 19.1065 9.76326C19.2026 9.76326 19.3175 9.8263 19.3511 9.94704L19.4917 10.4535L19.9324 12.0413L2.40078 16.9064L1.8195 14.8124C1.78308 14.681 1.86324 14.539 1.99459 14.5026ZM22.3236 20.656C22.346 20.7372 22.3225 20.8044 22.2987 20.8465C22.2751 20.8885 22.2298 20.9434 22.1485 20.9658L5.10128 25.6967C5.07973 25.7026 5.05759 25.7057 5.03627 25.7057C4.94019 25.7057 4.82531 25.6424 4.79173 25.5216L3.05828 19.2749L20.5899 14.4096L21.6591 18.2622L22.3236 20.656Z"
+                                        fill="#2C80EF" class="modal-svg" />
+                                    <path
+                                        d="M7.8555 21.0834C7.77369 20.7893 7.46665 20.6156 7.17251 20.6971L5.18162 21.2498C4.88775 21.3313 4.7138 21.6387 4.79561 21.9328L5.34802 23.9235C5.42982 24.2176 5.73686 24.3913 6.031 24.3095L8.0219 23.7571C8.31604 23.6755 8.48971 23.3682 8.40818 23.0741L7.8555 21.0834Z"
+                                        fill="#2C80EF" class="modal-svg" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="28" height="28" fill="white"
+                                            transform="translate(0.701172 0.335449)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <span>Картой</span>
+                        </div>
+                        <div class="modal-window-button" style="margin-left: auto;" @click="buyVehicle(1)">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                    <path
+                                        d="M24.8786 9.44924H20.5544V2.0679C20.5544 1.40514 20.2178 0.801449 19.654 0.452985C19.0904 0.104574 18.3999 0.0734607 17.807 0.369877C17.7994 0.373673 17.792 0.377576 17.7845 0.381583L2.13418 8.80431C1.00573 9.41164 0.304688 10.5851 0.304688 11.8665V11.875V12.4023V24.742C0.304688 26.0795 1.3929 27.1677 2.73044 27.1677H24.8786C26.2161 27.1677 27.3043 26.0795 27.3043 24.742V11.875C27.3043 10.5375 26.2161 9.44924 24.8786 9.44924ZM18.6033 9.44924H5.54288C5.26893 9.44924 5.1767 9.08322 5.4179 8.95339L18.569 1.87569C18.6527 1.83719 18.7226 1.86113 18.7668 1.8885C18.8125 1.91671 18.8669 1.97076 18.8669 2.06795V9.18562C18.8669 9.33122 18.7489 9.44924 18.6033 9.44924ZM22.2419 19.996C21.3114 19.996 20.5544 19.239 20.5544 18.3085C20.5544 17.378 21.3114 16.621 22.2419 16.621C23.1724 16.621 23.9294 17.378 23.9294 18.3085C23.9294 19.239 23.1723 19.996 22.2419 19.996Z"
+                                        fill="#2C80EF" class="modal-svg" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="27" height="27" fill="white"
+                                            transform="translate(0.303711 0.167725)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <span>Наличкой</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-window-money-wrapper">
+                    <div class="modal-window-money">
+                        <img src="./systems/Autosalon/img/wallet.svg">
+                        <p>${{money}}</p>
+                    </div>
+                    <div class="modal-window-money">
+                        <img src="./systems/Autosalon/img/bank.svg">
+                        <p>${{bank}}</p>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="success-window-wrapper" v-if="buyedWindow">
+                <div class="success-window-bg-wrapper">
+                    <img src="./systems/Autosalon/img/bg2.png" class="success-window-bg">
+                    <img src="./systems/Autosalon/img/successBuyed.png">
+                </div>
+                <div class="success-text-wrapper">
+                    <h1>Поздравляем тебя с покупкой</h1>
+                    <p>{{ vehicle }}</p>
+                </div>
+                <div class="success-textd-wrapper">
+                    <h1>Она уже стоит возле автосалона, проверь!</h1>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <!-- Банк -->
+    <div id="bank" v-show="active" v-cloak>
+        <img src="./systems/bank/img/bg2.png" class="bg">
+        <div class="bank-create-wrapper" v-if="open == true && isAccount == 0">
+            <h1>У вас нет карты</h1>
+            <div class="bank-create-button" @click="createBankAccount"><span>Создать</span></div>
+        </div>
+        <div class="bank-wrapper" v-if="open == true && isAccount == 1">
+            <div class="history-wrapper">
+                <div class="history-empty" v-if="bank_operations.length == 0">
+                    <h1>ОПЕРАЦИЙ НЕ БЫЛО</h1>
+                </div>
+                <div class="history" v-if="!bank_operations.length == 0" v-for="item in bank_operations">
+                    <img src="./systems/bank/img/back-arrow1.svg" v-if="item.type == 1" class="history-icon">
+                    <img src="./systems/bank/img/back-arrow2.svg" v-if="item.type == 2" class="history-icon">
+                    <div class="history-text-wrapper">
+                        <h1>{{ item.name }}</h1>
+                        <p>{{ item.subname }}</p>
+                    </div>
+                    <span v-if="item.type == 1">{{ item.money }}</span>
+                    <span style="color: #33C75D; text-shadow: 0px 0px 10px rgba(51, 199, 93, 0.5);"
+                        v-if="item.type == 2">{{ item.money }}</span>
+                </div>
+
+            </div>
+            <div class="bankomat-wrapper">
+                <div class="bank-card-info">
+                    <div class="bank-card-info-left">
+                        <img src="./systems/bank/img/fleeca.svg" alt="">
+                        <p>Основной счёт: <br><span style="color: rgba(255, 255, 255, 1);">${{money}}</span></p>
+                    </div>
+                    <div class="bank-card-info-right">
+                        <h1>{{ account }}</h1>
+                        <div class="bank-card-info-right-buttton" @click="clickButton(4)"><span>Удалить счёт</span></div>
+                    </div>
+                </div>
+                <div class="bankomat-buttons-wrapper">
+                    <div class="bankomat-button" @click="clickButton(1)">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M27.5454 25.0876C26.2395 26.6949 24.4795 27.5801 22.5898 27.5801H39.4515V24.5691H27.9308C27.8086 24.7471 27.6809 24.9208 27.5454 25.0876Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 25.0876C17.5165 24.9207 17.3888 24.7471 17.2668 24.5691H5.74609V27.5801H22.6077C20.718 27.5801 18.958 26.6949 17.6521 25.0876Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M27.5454 19.4963C26.2395 21.1035 24.4795 21.9888 22.5898 21.9888H39.4515V18.9778H27.9308C27.8086 19.1558 27.6809 19.3295 27.5454 19.4963Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 19.4963C17.5165 19.3294 17.3888 19.1558 17.2668 18.9778H5.74609V21.9888H22.6077C20.718 21.9888 18.958 21.1035 17.6521 19.4963Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M22.5944 2.63354C20.2226 2.63354 18.293 5.14205 18.293 8.2254C18.293 11.3087 20.2226 13.8173 22.5944 13.8173C24.9662 13.8173 26.8958 11.3087 26.8958 8.2254C26.8958 5.14205 24.9662 2.63354 22.5944 2.63354Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 13.903C16.4097 12.3738 15.7254 10.3565 15.7254 8.22276C15.7254 6.089 16.4097 4.07171 17.6521 2.54255C18.958 0.935283 20.718 0.0500488 22.6077 0.0500488H5.74609V16.3955H22.6077C20.718 16.3955 18.958 15.5102 17.6521 13.903ZM12.1982 7.79262C11.4856 7.79262 10.9078 7.21485 10.9078 6.50219C10.9078 5.78953 11.4856 5.21176 12.1982 5.21176C12.9109 5.21176 13.4887 5.78953 13.4887 6.50219C13.4887 7.21485 12.9109 7.79262 12.1982 7.79262Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M22.5898 0.0500488C24.4795 0.0500488 26.2395 0.935283 27.5454 2.54255C28.7879 4.07171 29.4721 6.089 29.4721 8.22276C29.4721 10.3565 28.7879 12.3738 27.5454 13.903C26.2395 15.5102 24.4795 16.3955 22.5898 16.3955H39.4515V0.0500488H22.5898ZM32.9993 11.2338C32.2867 11.2338 31.7089 10.656 31.7089 9.94334C31.7089 9.23067 32.2867 8.65291 32.9993 8.65291C33.712 8.65291 34.2897 9.23067 34.2897 9.94334C34.2897 10.656 33.712 11.2338 32.9993 11.2338Z"
+                                    fill="white" class="bankomat-button" />
+                                <path
+                                    d="M18.7421 44.05L26.4847 44.05L26.4847 40.0927L31.5273 40.0927L22.6134 30.1601L13.6995 40.0927L18.7421 40.0927L18.7421 44.05Z"
+                                    fill="white" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white"
+                                        transform="translate(0.589844 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>Пополнить баланс</span>
+                    </div>
+                    <div class="bankomat-button" @click="clickButton(2)">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M27.5454 25.0876C26.2395 26.6949 24.4795 27.5801 22.5898 27.5801H39.4515V24.5691H27.9308C27.8086 24.7471 27.6809 24.9208 27.5454 25.0876Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 25.0876C17.5165 24.9207 17.3888 24.7471 17.2668 24.5691H5.74609V27.5801H22.6077C20.718 27.5801 18.958 26.6949 17.6521 25.0876Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M27.5454 19.4963C26.2395 21.1035 24.4795 21.9888 22.5898 21.9888H39.4515V18.9778H27.9308C27.8086 19.1558 27.6809 19.3295 27.5454 19.4963Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 19.4963C17.5165 19.3294 17.3888 19.1558 17.2668 18.9778H5.74609V21.9888H22.6077C20.718 21.9888 18.958 21.1035 17.6521 19.4963Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M22.5944 2.63354C20.2226 2.63354 18.293 5.14205 18.293 8.2254C18.293 11.3087 20.2226 13.8173 22.5944 13.8173C24.9662 13.8173 26.8958 11.3087 26.8958 8.2254C26.8958 5.14205 24.9662 2.63354 22.5944 2.63354Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M17.6521 13.903C16.4097 12.3738 15.7254 10.3565 15.7254 8.22276C15.7254 6.089 16.4097 4.07171 17.6521 2.54255C18.958 0.935283 20.718 0.0500488 22.6077 0.0500488H5.74609V16.3955H22.6077C20.718 16.3955 18.958 15.5102 17.6521 13.903ZM12.1982 7.79262C11.4856 7.79262 10.9078 7.21485 10.9078 6.50219C10.9078 5.78953 11.4856 5.21176 12.1982 5.21176C12.9109 5.21176 13.4887 5.78953 13.4887 6.50219C13.4887 7.21485 12.9109 7.79262 12.1982 7.79262Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M22.5898 0.0500488C24.4795 0.0500488 26.2395 0.935283 27.5454 2.54255C28.7879 4.07171 29.4721 6.089 29.4721 8.22276C29.4721 10.3565 28.7879 12.3738 27.5454 13.903C26.2395 15.5102 24.4795 16.3955 22.5898 16.3955H39.4515V0.0500488H22.5898ZM32.9993 11.2338C32.2867 11.2338 31.7089 10.656 31.7089 9.94334C31.7089 9.23067 32.2867 8.65291 32.9993 8.65291C33.712 8.65291 34.2897 9.23067 34.2897 9.94334C34.2897 10.656 33.712 11.2338 32.9993 11.2338Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M26.4844 30.1602H18.7419V34.1175H13.6992L22.6132 44.0501L31.5271 34.1175H26.4844V30.1602Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white"
+                                        transform="translate(0.589844 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>Снять со счёта</span>
+                    </div>
+                    <div class="bankomat-button" @click="clickButton(3)">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M43.375 27.5503C42.616 27.5503 42 26.9343 42 26.1753C42 20.8678 37.6825 16.5503 32.375 16.5503H19.0833V22.5086C19.0833 23.7186 17.6277 24.3309 16.7587 23.5023L6.67533 13.8773C6.404 13.6188 6.25 13.2594 6.25 12.8836C6.25 12.5078 6.404 12.1484 6.67533 11.8899L16.7587 2.26493C17.6313 1.4326 19.0833 2.05226 19.0833 3.2586V9.21693H30.5417C38.3755 9.21693 44.75 15.5914 44.75 23.4253V26.1753C44.75 26.9343 44.134 27.5503 43.375 27.5503Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M26.4167 40.8417V34.8834H14.9583C7.1245 34.8834 0.75 28.5089 0.75 20.675V17.925C0.75 17.166 1.366 16.55 2.125 16.55C2.884 16.55 3.5 17.166 3.5 17.925C3.5 23.2325 7.8175 27.55 13.125 27.55H26.4167V21.5917C26.4167 20.3872 27.8668 19.762 28.7413 20.598L38.8247 30.223C39.096 30.4815 39.25 30.8409 39.25 31.2167C39.25 31.5925 39.096 31.9519 38.8247 32.2104L28.7413 41.8354C27.8668 42.6677 26.4167 42.048 26.4167 40.8417Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span>Перевести деньги</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M34.8716 0.0500488H10.6271C9.70736 0.0500488 8.96289 0.794514 8.96289 1.71428V42.3858C8.96289 43.3056 9.70736 44.05 10.6271 44.05H34.8716C35.7914 44.05 36.5358 43.3056 36.5358 42.3858V1.71428C36.5358 0.794514 35.7903 0.0500488 34.8716 0.0500488ZM18.4967 2.0793H27.0031C27.3082 2.0793 27.5579 2.32782 27.5579 2.63404C27.5579 2.94026 27.3082 3.18879 27.0031 3.18879H18.4967C18.1905 3.18879 17.942 2.94026 17.942 2.63404C17.942 2.32782 18.1894 2.0793 18.4967 2.0793ZM22.7494 42.2061C21.9328 42.2061 21.2704 41.5426 21.2704 40.7271C21.2704 39.9117 21.9328 39.2471 22.7494 39.2471C23.5659 39.2471 24.2283 39.9117 24.2283 40.726C24.2283 41.5404 23.5659 42.2061 22.7494 42.2061ZM33.2074 37.5829H12.2913V4.66773H33.2074V37.5829Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Оплата телефона</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M38.3064 6.49364C34.1512 2.33839 28.6264 0.0500488 22.75 0.0500488C16.8736 0.0500488 11.3488 2.33839 7.19359 6.49364C3.03834 10.6489 0.75 16.1736 0.75 22.05C0.75 27.9265 3.03843 33.4511 7.19359 37.6065C11.3488 41.7618 16.8736 44.05 22.75 44.05C28.6264 44.05 34.1512 41.7617 38.3064 37.6065C42.4617 33.4512 44.75 27.9265 44.75 22.05C44.75 16.1736 42.4616 10.649 38.3064 6.49364ZM22.75 20.675C26.1618 20.675 28.9375 23.4507 28.9375 26.8625C28.9375 29.6879 27.0334 32.0754 24.4414 32.8131C24.2552 32.8661 24.125 33.0336 24.125 33.2273V34.3862C24.125 35.1266 23.556 35.7637 22.8164 35.7985C22.0268 35.8356 21.375 35.2065 21.375 34.425V33.227C21.375 33.0339 21.2456 32.8663 21.0599 32.8135C18.479 32.0796 16.5798 29.71 16.5626 26.901C16.558 26.1512 17.1476 25.5096 17.8971 25.4881C18.6749 25.4658 19.3125 26.0897 19.3125 26.8625C19.3125 28.8393 20.9897 30.4317 22.9957 30.2915C24.689 30.1731 26.0607 28.8014 26.1789 27.1081C26.319 25.102 24.7266 23.425 22.75 23.425C19.3382 23.425 16.5625 20.6494 16.5625 17.2375C16.5625 14.4122 18.4666 12.0247 21.0586 11.287C21.2448 11.234 21.375 11.0665 21.375 10.8728V9.71389C21.375 8.97346 21.944 8.3364 22.6836 8.3016C23.4733 8.26447 24.125 8.89362 24.125 9.67505V10.8731C24.125 11.0662 24.2544 11.2338 24.4401 11.2866C27.021 12.0205 28.9202 14.3901 28.9374 17.1991C28.942 17.9489 28.3524 18.5905 27.6029 18.6119C26.8251 18.6343 26.1875 18.0104 26.1875 17.2375C26.1875 15.2608 24.5103 13.6684 22.5043 13.8086C20.811 13.927 19.4393 15.2987 19.3211 16.992C19.181 18.9981 20.7734 20.675 22.75 20.675Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Благотворительность</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M7.45508 19.5752C7.45508 20.1624 7.88048 20.6511 8.43901 20.7519V18.3987C7.88048 18.4995 7.45508 18.9882 7.45508 19.5752Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M12.025 24.6985V24.5704C12.025 23.9832 11.5996 23.4945 11.041 23.3938V25.8751C11.5996 25.7743 12.025 25.2856 12.025 24.6985Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M0.75 10.0237V34.0762H44.75V10.0237H0.75ZM4.85302 19.5752C4.85302 17.5521 6.44292 15.8938 8.43879 15.783V14.0999H11.0406V15.7766H14.6265V18.3785H11.0406V20.778C13.0366 20.8888 14.6265 22.5472 14.6265 24.5703V24.6984C14.6265 26.7215 13.0366 28.3799 11.0406 28.4906V30.0579H8.43879V28.4968H4.85302V25.8949H8.43879V23.3673C6.44292 23.2566 4.85302 21.5982 4.85302 19.5752ZM38.3321 20.4889V23.0907H17.8065V20.4889H38.3321ZM17.8065 18.0316V15.4298H29.139V18.0316H17.8065ZM38.3321 25.548V28.1498H17.8065V25.548H38.3321Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Оплата штрафов</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M43.5637 19.1879C43.5627 19.1869 43.5617 19.1859 43.5607 19.1849L25.6122 1.23706C24.8471 0.47168 23.83 0.0500488 22.748 0.0500488C21.6661 0.0500488 20.6489 0.471344 19.8836 1.23672L1.94444 19.1755C1.9384 19.1815 1.93236 19.1879 1.92631 19.194C0.35527 20.7741 0.357955 23.3378 1.93404 24.9138C2.6541 25.6342 3.60512 26.0515 4.62193 26.0952C4.66322 26.0992 4.70485 26.1012 4.74681 26.1012H5.46217V39.3097C5.46217 41.9234 7.58879 44.05 10.2032 44.05H17.2252C17.9369 44.05 18.5143 43.473 18.5143 42.761V32.4055C18.5143 31.2128 19.4844 30.2426 20.6771 30.2426H24.8189C26.0116 30.2426 26.9818 31.2128 26.9818 32.4055V42.761C26.9818 43.473 27.5589 44.05 28.2709 44.05H35.2929C37.9073 44.05 40.0339 41.9234 40.0339 39.3097V26.1012H40.6972C41.7788 26.1012 42.796 25.6799 43.5617 24.9145C45.1395 23.3358 45.1401 20.7677 43.5637 19.1879Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Оплата дома</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M41.0833 9.21664H31.9167V7.38325C31.9167 5.36105 30.2723 3.71655 28.25 3.71655H17.25C15.2278 3.71655 13.5833 5.36097 13.5833 7.38325V9.21656H4.4167C2.39441 9.21664 0.75 10.8611 0.75 12.8833V18.3833C0.75 20.4055 2.39441 22.05 4.4167 22.05H19.0834V21.1333C19.0834 20.6266 19.4934 20.2166 20.0001 20.2166H25.5001C26.0068 20.2166 26.4168 20.6266 26.4168 21.1333V22.05H41.0835C43.1056 22.05 44.75 20.4055 44.75 18.3833V12.8833C44.75 10.8611 43.1056 9.21664 41.0833 9.21664ZM28.25 9.21664H17.25V7.38325H28.25V9.21664Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M44.2415 23.0392C43.9291 22.8843 43.5558 22.9202 43.28 23.1296C42.6284 23.6229 41.8692 23.8834 41.0832 23.8834H26.4167V26.6334C26.4167 27.14 26.0067 27.5501 25.5 27.5501H20C19.4933 27.5501 19.0833 27.14 19.0833 26.6334V23.8834H4.4167C3.63071 23.8834 2.87162 23.6229 2.21987 23.1296C1.94324 22.9184 1.57087 22.8825 1.25841 23.0392C0.946969 23.1941 0.75 23.5118 0.75 23.8602V36.7168C0.75 38.739 2.39441 40.3835 4.4167 40.3835H41.0834C43.1056 40.3835 44.7501 38.739 44.7501 36.7168V23.8602C44.75 23.5118 44.553 23.1941 44.2415 23.0392Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Оплата бизнеса</span>
+                    </div>
+                    <div class="bankomat-button">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M27.3021 9.89126C29.3365 11.1668 30.7631 13.3254 31.0229 15.831C31.8526 16.2186 32.7734 16.4416 33.7497 16.4416C37.314 16.4416 40.2028 13.5527 40.2028 9.989C40.2028 6.42474 37.314 3.53589 33.7497 3.53589C30.2195 3.53699 27.3559 6.37423 27.3021 9.89126ZM23.0745 23.1039C26.6388 23.1039 29.5276 20.2145 29.5276 16.6508C29.5276 13.0871 26.6382 10.1982 23.0745 10.1982C19.5108 10.1982 16.6203 13.0876 16.6203 16.6513C16.6203 20.215 19.5108 23.1039 23.0745 23.1039ZM25.8118 23.5437H20.3361C15.7802 23.5437 12.0737 27.2508 12.0737 31.8067V38.5031L12.0907 38.6079L12.552 38.7524C16.8998 40.1109 20.6771 40.5639 23.7862 40.5639C29.8587 40.5639 33.3785 38.8325 33.5954 38.7222L34.0265 38.5042H34.0726V31.8067C34.0742 27.2508 30.3678 23.5437 25.8118 23.5437ZM36.4881 16.882H31.0547C30.996 19.0559 30.068 21.0134 28.6002 22.4214C32.6499 23.6255 35.6129 27.3809 35.6129 31.8166V33.8801C40.9776 33.6835 44.0691 32.1631 44.2728 32.0609L44.7039 31.8424H44.75V25.1438C44.75 20.5884 41.0435 16.882 36.4881 16.882ZM11.7514 16.4427C13.0138 16.4427 14.1883 16.0742 15.1833 15.4466C15.4996 13.3836 16.6055 11.5809 18.1853 10.3531C18.1919 10.2323 18.2034 10.1126 18.2034 9.99065C18.2034 6.42639 15.314 3.53754 11.7514 3.53754C8.18657 3.53754 5.29826 6.42639 5.29826 9.99065C5.29826 13.5533 8.18657 16.4427 11.7514 16.4427ZM17.5467 22.4214C16.086 21.0206 15.1613 19.0734 15.0938 16.9127C14.8923 16.8979 14.6929 16.882 14.4876 16.882H9.01242C4.45648 16.882 0.75 20.5884 0.75 25.1438V31.8413L0.767022 31.9445L1.22827 32.09C4.71621 33.1789 7.8291 33.6808 10.5329 33.8389V31.8166C10.534 27.3809 13.4959 23.6266 17.5467 22.4214Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Пополнить баланс семьи</span>
+                    </div>
+                    <div class="bankomat-button" @click="closeBankWindow">
+                        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M28.2497 23.8835C27.2359 23.8835 26.4165 24.705 26.4165 25.7167V33.0502C26.4165 34.0603 25.5951 34.8834 24.583 34.8834H19.083V7.38369C19.083 5.81803 18.0857 4.41921 16.5862 3.89855L16.0434 3.71694H24.583C25.5951 3.71694 26.4165 4.54006 26.4165 5.55048V11.0504C26.4165 12.0622 27.2359 12.8836 28.2497 12.8836C29.2635 12.8836 30.0829 12.0622 30.0829 11.0504V5.55048C30.0829 2.51819 27.6153 0.0505371 24.583 0.0505371H4.87496C4.80513 0.0505371 4.74672 0.0817563 4.67891 0.0908199C4.59063 0.0834348 4.50637 0.0505371 4.41674 0.0505371C2.39454 0.0505371 0.75 1.69475 0.75 3.71694V36.7166C0.75 38.2823 1.74733 39.6811 3.24686 40.2018L14.28 43.8796C14.6539 43.9951 15.0259 44.0501 15.4166 44.0501C17.4388 44.0501 19.083 42.4056 19.083 40.3834V38.5502H24.583C27.6153 38.5502 30.0829 36.0825 30.0829 33.0502V25.7167C30.0829 24.705 29.2635 23.8835 28.2497 23.8835Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                                <path
+                                    d="M44.2115 17.0876L36.878 9.75446C36.354 9.23011 35.5655 9.07233 34.88 9.35633C34.1962 9.64066 33.7487 10.3097 33.7487 11.0506V16.5505H26.4156C25.4035 16.5505 24.582 17.3716 24.582 18.3837C24.582 19.3958 25.4035 20.2169 26.4156 20.2169H33.7487V25.7168C33.7487 26.4577 34.1962 27.1267 34.88 27.4111C35.5655 27.6951 36.354 27.5373 36.878 27.0133L44.2115 19.6798C44.9282 18.9631 44.9282 17.8043 44.2115 17.0876Z"
+                                    fill="#2C80EF" class="bankomat-button" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Выход</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <transition name="fade">
+            <div class="bank-error-window" v-show="error.active" @click="closeError">
+                <div class="bank-error-texts">
+                    <h1>ОШИБКА</h1>
+                    <p>{{ error.text }}</p>
+                </div>
+            </div>
+        </transition>
+        <transition-group name="fade">
+            <div class="bankomat-modal-wrapper" v-show="modal.active && modal.type == 1" :key="1">
+                <h1>Операция "{{ modal.text }}"</h1>
+                <div class="bankomat-modal-inputs">
+                    <input type="text" :placeholder="[[ modal.input1holder ]]" v-model="modal.input1" type="number"
+                        min="1" max="1000">
+                    <input type="text" :placeholder="[[ modal.input2holder ]]" v-model="modal.input2" type="number"
+                        min="1" max="1000">
+                </div>
+                <div class="bankomat-modal-buttons">
+                    <div class="bankomat-modal-button" @click="clickModal"><span>{{ modal.button }}</span></div>
+                    <span class="bankomat-modal-button-close" @click="closeModalWindow">Закрыть</span>
+                </div>
+                <!-- <p class="commission">Коммисия 1%</p> -->
+            </div>
+            <div class="bankomat-modal-wrapper" v-show="modal.active && modal.type == 2" :key="2">
+                <h1>Операция "{{ modal.text }}"</h1>
+                <div class="bankomat-modal-inputs">
+                    <input v-model="modal.input1" type="number" min="1" max="1000">
+                </div>
+                <div class="bankomat-modal-buttons">
+                    <div class="bankomat-modal-button" @click="clickModal"><span>{{ modal.button}}</span></div>
+                    <span class="bankomat-modal-button-close" @click="closeModalWindow">Закрыть</span>
+                </div>
+            </div>
+            <div class="bankomat-modal-wrapper" v-show="modal.active && modal.type == 3" :key="3">
+                <h1 style="font-size: 3vh;">Вы уверены что хотите удалить счет?</h1>
+                <p>В отделении банка вы сможете открыть новый счёт</p>
+                <div class="bankomat-modal-buttons">
+                    <div class="bankomat-modal-button" style="margin: 0 auto; margin-top: 2vh;" @click="clickModal"><span>Подтвердить</span></div>
+                    <span class="bankomat-modal-button-close" @click="closeModalWindow">отмена</span>
+                </div>
+            </div>
+            </transition>
+    </div>
+    <!-- Банкоматы -->
+    <div id="bankomat" v-show="active" v-cloak>
+        <img src="./systems/bank/img/bg.png" class="bg">
+        <div class="bankomat-wrapper" v-show="open">
+            <div class="bankomat-texts-wrapper">
+                <h1>Добро пожаловать, {{ playername }}!</h1>
+                <p>Выберите операцию:</p>
+            </div>
+            <div class="bankomat-buttons-wrapper">
+                <div class="bankomat-button" @click="clickButton(1)">
+                    <!-- <object type="image/svg+xml" data="./systems/bank/img/replenish.svg"></object> -->
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M27.5454 25.0876C26.2395 26.6949 24.4795 27.5801 22.5898 27.5801H39.4515V24.5691H27.9308C27.8086 24.7471 27.6809 24.9208 27.5454 25.0876Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M17.6521 25.0876C17.5165 24.9207 17.3888 24.7471 17.2668 24.5691H5.74609V27.5801H22.6077C20.718 27.5801 18.958 26.6949 17.6521 25.0876Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M27.5454 19.4963C26.2395 21.1035 24.4795 21.9888 22.5898 21.9888H39.4515V18.9778H27.9308C27.8086 19.1558 27.6809 19.3295 27.5454 19.4963Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M17.6521 19.4963C17.5165 19.3294 17.3888 19.1558 17.2668 18.9778H5.74609V21.9888H22.6077C20.718 21.9888 18.958 21.1035 17.6521 19.4963Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M22.5944 2.63354C20.2226 2.63354 18.293 5.14205 18.293 8.2254C18.293 11.3087 20.2226 13.8173 22.5944 13.8173C24.9662 13.8173 26.8958 11.3087 26.8958 8.2254C26.8958 5.14205 24.9662 2.63354 22.5944 2.63354Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M17.6521 13.903C16.4097 12.3738 15.7254 10.3565 15.7254 8.22276C15.7254 6.089 16.4097 4.07171 17.6521 2.54255C18.958 0.935283 20.718 0.0500488 22.6077 0.0500488H5.74609V16.3955H22.6077C20.718 16.3955 18.958 15.5102 17.6521 13.903ZM12.1982 7.79262C11.4856 7.79262 10.9078 7.21485 10.9078 6.50219C10.9078 5.78953 11.4856 5.21176 12.1982 5.21176C12.9109 5.21176 13.4887 5.78953 13.4887 6.50219C13.4887 7.21485 12.9109 7.79262 12.1982 7.79262Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M22.5898 0.0500488C24.4795 0.0500488 26.2395 0.935283 27.5454 2.54255C28.7879 4.07171 29.4721 6.089 29.4721 8.22276C29.4721 10.3565 28.7879 12.3738 27.5454 13.903C26.2395 15.5102 24.4795 16.3955 22.5898 16.3955H39.4515V0.0500488H22.5898ZM32.9993 11.2338C32.2867 11.2338 31.7089 10.656 31.7089 9.94334C31.7089 9.23067 32.2867 8.65291 32.9993 8.65291C33.712 8.65291 34.2897 9.23067 34.2897 9.94334C34.2897 10.656 33.712 11.2338 32.9993 11.2338Z"
+                                fill="white" class="bankomat-button" />
+                            <path
+                                d="M18.7421 44.05L26.4847 44.05L26.4847 40.0927L31.5273 40.0927L22.6134 30.1601L13.6995 40.0927L18.7421 40.0927L18.7421 44.05Z"
+                                fill="white" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.589844 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span>Пополнить баланс</span>
+                </div>
+                <div class="bankomat-button" @click="clickButton(2)">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M27.5454 25.0876C26.2395 26.6949 24.4795 27.5801 22.5898 27.5801H39.4515V24.5691H27.9308C27.8086 24.7471 27.6809 24.9208 27.5454 25.0876Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M17.6521 25.0876C17.5165 24.9207 17.3888 24.7471 17.2668 24.5691H5.74609V27.5801H22.6077C20.718 27.5801 18.958 26.6949 17.6521 25.0876Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M27.5454 19.4963C26.2395 21.1035 24.4795 21.9888 22.5898 21.9888H39.4515V18.9778H27.9308C27.8086 19.1558 27.6809 19.3295 27.5454 19.4963Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M17.6521 19.4963C17.5165 19.3294 17.3888 19.1558 17.2668 18.9778H5.74609V21.9888H22.6077C20.718 21.9888 18.958 21.1035 17.6521 19.4963Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M22.5944 2.63354C20.2226 2.63354 18.293 5.14205 18.293 8.2254C18.293 11.3087 20.2226 13.8173 22.5944 13.8173C24.9662 13.8173 26.8958 11.3087 26.8958 8.2254C26.8958 5.14205 24.9662 2.63354 22.5944 2.63354Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M17.6521 13.903C16.4097 12.3738 15.7254 10.3565 15.7254 8.22276C15.7254 6.089 16.4097 4.07171 17.6521 2.54255C18.958 0.935283 20.718 0.0500488 22.6077 0.0500488H5.74609V16.3955H22.6077C20.718 16.3955 18.958 15.5102 17.6521 13.903ZM12.1982 7.79262C11.4856 7.79262 10.9078 7.21485 10.9078 6.50219C10.9078 5.78953 11.4856 5.21176 12.1982 5.21176C12.9109 5.21176 13.4887 5.78953 13.4887 6.50219C13.4887 7.21485 12.9109 7.79262 12.1982 7.79262Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M22.5898 0.0500488C24.4795 0.0500488 26.2395 0.935283 27.5454 2.54255C28.7879 4.07171 29.4721 6.089 29.4721 8.22276C29.4721 10.3565 28.7879 12.3738 27.5454 13.903C26.2395 15.5102 24.4795 16.3955 22.5898 16.3955H39.4515V0.0500488H22.5898ZM32.9993 11.2338C32.2867 11.2338 31.7089 10.656 31.7089 9.94334C31.7089 9.23067 32.2867 8.65291 32.9993 8.65291C33.712 8.65291 34.2897 9.23067 34.2897 9.94334C34.2897 10.656 33.712 11.2338 32.9993 11.2338Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M26.4844 30.1602H18.7419V34.1175H13.6992L22.6132 44.0501L31.5271 34.1175H26.4844V30.1602Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.589844 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span>Снять со счёта</span>
+                </div>
+                <div class="bankomat-button" @click="clickButton(3)">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M43.375 27.5503C42.616 27.5503 42 26.9343 42 26.1753C42 20.8678 37.6825 16.5503 32.375 16.5503H19.0833V22.5086C19.0833 23.7186 17.6277 24.3309 16.7587 23.5023L6.67533 13.8773C6.404 13.6188 6.25 13.2594 6.25 12.8836C6.25 12.5078 6.404 12.1484 6.67533 11.8899L16.7587 2.26493C17.6313 1.4326 19.0833 2.05226 19.0833 3.2586V9.21693H30.5417C38.3755 9.21693 44.75 15.5914 44.75 23.4253V26.1753C44.75 26.9343 44.134 27.5503 43.375 27.5503Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M26.4167 40.8417V34.8834H14.9583C7.1245 34.8834 0.75 28.5089 0.75 20.675V17.925C0.75 17.166 1.366 16.55 2.125 16.55C2.884 16.55 3.5 17.166 3.5 17.925C3.5 23.2325 7.8175 27.55 13.125 27.55H26.4167V21.5917C26.4167 20.3872 27.8668 19.762 28.7413 20.598L38.8247 30.223C39.096 30.4815 39.25 30.8409 39.25 31.2167C39.25 31.5925 39.096 31.9519 38.8247 32.2104L28.7413 41.8354C27.8668 42.6677 26.4167 42.048 26.4167 40.8417Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <span>Перевести деньги</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M34.8716 0.0500488H10.6271C9.70736 0.0500488 8.96289 0.794514 8.96289 1.71428V42.3858C8.96289 43.3056 9.70736 44.05 10.6271 44.05H34.8716C35.7914 44.05 36.5358 43.3056 36.5358 42.3858V1.71428C36.5358 0.794514 35.7903 0.0500488 34.8716 0.0500488ZM18.4967 2.0793H27.0031C27.3082 2.0793 27.5579 2.32782 27.5579 2.63404C27.5579 2.94026 27.3082 3.18879 27.0031 3.18879H18.4967C18.1905 3.18879 17.942 2.94026 17.942 2.63404C17.942 2.32782 18.1894 2.0793 18.4967 2.0793ZM22.7494 42.2061C21.9328 42.2061 21.2704 41.5426 21.2704 40.7271C21.2704 39.9117 21.9328 39.2471 22.7494 39.2471C23.5659 39.2471 24.2283 39.9117 24.2283 40.726C24.2283 41.5404 23.5659 42.2061 22.7494 42.2061ZM33.2074 37.5829H12.2913V4.66773H33.2074V37.5829Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Оплата телефона</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M38.3064 6.49364C34.1512 2.33839 28.6264 0.0500488 22.75 0.0500488C16.8736 0.0500488 11.3488 2.33839 7.19359 6.49364C3.03834 10.6489 0.75 16.1736 0.75 22.05C0.75 27.9265 3.03843 33.4511 7.19359 37.6065C11.3488 41.7618 16.8736 44.05 22.75 44.05C28.6264 44.05 34.1512 41.7617 38.3064 37.6065C42.4617 33.4512 44.75 27.9265 44.75 22.05C44.75 16.1736 42.4616 10.649 38.3064 6.49364ZM22.75 20.675C26.1618 20.675 28.9375 23.4507 28.9375 26.8625C28.9375 29.6879 27.0334 32.0754 24.4414 32.8131C24.2552 32.8661 24.125 33.0336 24.125 33.2273V34.3862C24.125 35.1266 23.556 35.7637 22.8164 35.7985C22.0268 35.8356 21.375 35.2065 21.375 34.425V33.227C21.375 33.0339 21.2456 32.8663 21.0599 32.8135C18.479 32.0796 16.5798 29.71 16.5626 26.901C16.558 26.1512 17.1476 25.5096 17.8971 25.4881C18.6749 25.4658 19.3125 26.0897 19.3125 26.8625C19.3125 28.8393 20.9897 30.4317 22.9957 30.2915C24.689 30.1731 26.0607 28.8014 26.1789 27.1081C26.319 25.102 24.7266 23.425 22.75 23.425C19.3382 23.425 16.5625 20.6494 16.5625 17.2375C16.5625 14.4122 18.4666 12.0247 21.0586 11.287C21.2448 11.234 21.375 11.0665 21.375 10.8728V9.71389C21.375 8.97346 21.944 8.3364 22.6836 8.3016C23.4733 8.26447 24.125 8.89362 24.125 9.67505V10.8731C24.125 11.0662 24.2544 11.2338 24.4401 11.2866C27.021 12.0205 28.9202 14.3901 28.9374 17.1991C28.942 17.9489 28.3524 18.5905 27.6029 18.6119C26.8251 18.6343 26.1875 18.0104 26.1875 17.2375C26.1875 15.2608 24.5103 13.6684 22.5043 13.8086C20.811 13.927 19.4393 15.2987 19.3211 16.992C19.181 18.9981 20.7734 20.675 22.75 20.675Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Благотворительность</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M7.45508 19.5752C7.45508 20.1624 7.88048 20.6511 8.43901 20.7519V18.3987C7.88048 18.4995 7.45508 18.9882 7.45508 19.5752Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M12.025 24.6985V24.5704C12.025 23.9832 11.5996 23.4945 11.041 23.3938V25.8751C11.5996 25.7743 12.025 25.2856 12.025 24.6985Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M0.75 10.0237V34.0762H44.75V10.0237H0.75ZM4.85302 19.5752C4.85302 17.5521 6.44292 15.8938 8.43879 15.783V14.0999H11.0406V15.7766H14.6265V18.3785H11.0406V20.778C13.0366 20.8888 14.6265 22.5472 14.6265 24.5703V24.6984C14.6265 26.7215 13.0366 28.3799 11.0406 28.4906V30.0579H8.43879V28.4968H4.85302V25.8949H8.43879V23.3673C6.44292 23.2566 4.85302 21.5982 4.85302 19.5752ZM38.3321 20.4889V23.0907H17.8065V20.4889H38.3321ZM17.8065 18.0316V15.4298H29.139V18.0316H17.8065ZM38.3321 25.548V28.1498H17.8065V25.548H38.3321Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Оплата штрафов</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M43.5637 19.1879C43.5627 19.1869 43.5617 19.1859 43.5607 19.1849L25.6122 1.23706C24.8471 0.47168 23.83 0.0500488 22.748 0.0500488C21.6661 0.0500488 20.6489 0.471344 19.8836 1.23672L1.94444 19.1755C1.9384 19.1815 1.93236 19.1879 1.92631 19.194C0.35527 20.7741 0.357955 23.3378 1.93404 24.9138C2.6541 25.6342 3.60512 26.0515 4.62193 26.0952C4.66322 26.0992 4.70485 26.1012 4.74681 26.1012H5.46217V39.3097C5.46217 41.9234 7.58879 44.05 10.2032 44.05H17.2252C17.9369 44.05 18.5143 43.473 18.5143 42.761V32.4055C18.5143 31.2128 19.4844 30.2426 20.6771 30.2426H24.8189C26.0116 30.2426 26.9818 31.2128 26.9818 32.4055V42.761C26.9818 43.473 27.5589 44.05 28.2709 44.05H35.2929C37.9073 44.05 40.0339 41.9234 40.0339 39.3097V26.1012H40.6972C41.7788 26.1012 42.796 25.6799 43.5617 24.9145C45.1395 23.3358 45.1401 20.7677 43.5637 19.1879Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Оплата дома</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M41.0833 9.21664H31.9167V7.38325C31.9167 5.36105 30.2723 3.71655 28.25 3.71655H17.25C15.2278 3.71655 13.5833 5.36097 13.5833 7.38325V9.21656H4.4167C2.39441 9.21664 0.75 10.8611 0.75 12.8833V18.3833C0.75 20.4055 2.39441 22.05 4.4167 22.05H19.0834V21.1333C19.0834 20.6266 19.4934 20.2166 20.0001 20.2166H25.5001C26.0068 20.2166 26.4168 20.6266 26.4168 21.1333V22.05H41.0835C43.1056 22.05 44.75 20.4055 44.75 18.3833V12.8833C44.75 10.8611 43.1056 9.21664 41.0833 9.21664ZM28.25 9.21664H17.25V7.38325H28.25V9.21664Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M44.2415 23.0392C43.9291 22.8843 43.5558 22.9202 43.28 23.1296C42.6284 23.6229 41.8692 23.8834 41.0832 23.8834H26.4167V26.6334C26.4167 27.14 26.0067 27.5501 25.5 27.5501H20C19.4933 27.5501 19.0833 27.14 19.0833 26.6334V23.8834H4.4167C3.63071 23.8834 2.87162 23.6229 2.21987 23.1296C1.94324 22.9184 1.57087 22.8825 1.25841 23.0392C0.946969 23.1941 0.75 23.5118 0.75 23.8602V36.7168C0.75 38.739 2.39441 40.3835 4.4167 40.3835H41.0834C43.1056 40.3835 44.7501 38.739 44.7501 36.7168V23.8602C44.75 23.5118 44.553 23.1941 44.2415 23.0392Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Оплата бизнеса</span>
+                </div>
+                <div class="bankomat-button">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M27.3021 9.89126C29.3365 11.1668 30.7631 13.3254 31.0229 15.831C31.8526 16.2186 32.7734 16.4416 33.7497 16.4416C37.314 16.4416 40.2028 13.5527 40.2028 9.989C40.2028 6.42474 37.314 3.53589 33.7497 3.53589C30.2195 3.53699 27.3559 6.37423 27.3021 9.89126ZM23.0745 23.1039C26.6388 23.1039 29.5276 20.2145 29.5276 16.6508C29.5276 13.0871 26.6382 10.1982 23.0745 10.1982C19.5108 10.1982 16.6203 13.0876 16.6203 16.6513C16.6203 20.215 19.5108 23.1039 23.0745 23.1039ZM25.8118 23.5437H20.3361C15.7802 23.5437 12.0737 27.2508 12.0737 31.8067V38.5031L12.0907 38.6079L12.552 38.7524C16.8998 40.1109 20.6771 40.5639 23.7862 40.5639C29.8587 40.5639 33.3785 38.8325 33.5954 38.7222L34.0265 38.5042H34.0726V31.8067C34.0742 27.2508 30.3678 23.5437 25.8118 23.5437ZM36.4881 16.882H31.0547C30.996 19.0559 30.068 21.0134 28.6002 22.4214C32.6499 23.6255 35.6129 27.3809 35.6129 31.8166V33.8801C40.9776 33.6835 44.0691 32.1631 44.2728 32.0609L44.7039 31.8424H44.75V25.1438C44.75 20.5884 41.0435 16.882 36.4881 16.882ZM11.7514 16.4427C13.0138 16.4427 14.1883 16.0742 15.1833 15.4466C15.4996 13.3836 16.6055 11.5809 18.1853 10.3531C18.1919 10.2323 18.2034 10.1126 18.2034 9.99065C18.2034 6.42639 15.314 3.53754 11.7514 3.53754C8.18657 3.53754 5.29826 6.42639 5.29826 9.99065C5.29826 13.5533 8.18657 16.4427 11.7514 16.4427ZM17.5467 22.4214C16.086 21.0206 15.1613 19.0734 15.0938 16.9127C14.8923 16.8979 14.6929 16.882 14.4876 16.882H9.01242C4.45648 16.882 0.75 20.5884 0.75 25.1438V31.8413L0.767022 31.9445L1.22827 32.09C4.71621 33.1789 7.8291 33.6808 10.5329 33.8389V31.8166C10.534 27.3809 13.4959 23.6266 17.5467 22.4214Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Пополнить баланс семьи</span>
+                </div>
+                <div class="bankomat-button" @click="closeBankWindow">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <path
+                                d="M28.2497 23.8835C27.2359 23.8835 26.4165 24.705 26.4165 25.7167V33.0502C26.4165 34.0603 25.5951 34.8834 24.583 34.8834H19.083V7.38369C19.083 5.81803 18.0857 4.41921 16.5862 3.89855L16.0434 3.71694H24.583C25.5951 3.71694 26.4165 4.54006 26.4165 5.55048V11.0504C26.4165 12.0622 27.2359 12.8836 28.2497 12.8836C29.2635 12.8836 30.0829 12.0622 30.0829 11.0504V5.55048C30.0829 2.51819 27.6153 0.0505371 24.583 0.0505371H4.87496C4.80513 0.0505371 4.74672 0.0817563 4.67891 0.0908199C4.59063 0.0834348 4.50637 0.0505371 4.41674 0.0505371C2.39454 0.0505371 0.75 1.69475 0.75 3.71694V36.7166C0.75 38.2823 1.74733 39.6811 3.24686 40.2018L14.28 43.8796C14.6539 43.9951 15.0259 44.0501 15.4166 44.0501C17.4388 44.0501 19.083 42.4056 19.083 40.3834V38.5502H24.583C27.6153 38.5502 30.0829 36.0825 30.0829 33.0502V25.7167C30.0829 24.705 29.2635 23.8835 28.2497 23.8835Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                            <path
+                                d="M44.2115 17.0876L36.878 9.75446C36.354 9.23011 35.5655 9.07233 34.88 9.35633C34.1962 9.64066 33.7487 10.3097 33.7487 11.0506V16.5505H26.4156C25.4035 16.5505 24.582 17.3716 24.582 18.3837C24.582 19.3958 25.4035 20.2169 26.4156 20.2169H33.7487V25.7168C33.7487 26.4577 34.1962 27.1267 34.88 27.4111C35.5655 27.6951 36.354 27.5373 36.878 27.0133L44.2115 19.6798C44.9282 18.9631 44.9282 17.8043 44.2115 17.0876Z"
+                                fill="#2C80EF" class="bankomat-button" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="44" height="44" fill="white" transform="translate(0.75 0.0500488)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Выход</span>
+                </div>
+            </div>
+            <div class="bankomat-statistic-wrapper">
+                <div class="bankomat-statistic-text">
+                    <h1>Ваш баланс:</h1>
+                    <p>${{balance}}</p>
+                </div>
+                <div class="bankomat-statistic-text">
+                    <h1>Наличные:</h1>
+                    <p>${{ playermoney}}</p>
+                </div>
+                <div class="bankomat-statistic-text">
+                    <h1>Ваш номер счета:</h1>
+                    <p>{{account}}</p>
+                </div>
+            </div>
+        </div>
+        <transition-group name="fade">
+            <div class="bankomat-modal-wrapper" v-show="modal.active && modal.type == 1" :key="1">
+                <h1>Операция "{{ modal.text }}"</h1>
+                <div class="bankomat-modal-inputs">
+                    <input :placeholder="[[ modal.input1holder ]]" v-model="modal.input1">
+                    <input :placeholder="[[ modal.input2holder ]]" v-model="modal.input2" type="number" min="1"
+                        max="1000">
+                </div>
+                <div class="bankomat-modal-buttons">
+                    <div class="bankomat-modal-button" @click="clickModal"><span>{{ modal.button }}</span></div>
+                    <span class="bankomat-modal-button-close" @click="closeModalWindow">Закрыть</span>
+                </div>
+            </div>
+            <div class="bankomat-modal-wrapper" v-show="modal.active && modal.type == 2" :key="2">
+                <h1>Операция "{{ modal.text }}"</h1>
+                <div class="bankomat-modal-inputs">
+                    <input v-model="modal.input1" type="number" min="1" max="1000">
+                </div>
+                <div class="bankomat-modal-buttons">
+                    <div class="bankomat-modal-button" @click="clickModal"><span>{{ modal.button }}</span></div>
+                    <span class="bankomat-modal-button-close" @click="closeModalWindow">Закрыть</span>
+                </div>
+            </div>
+            </transition-group>
+            <transition name="fade">
+                <div class="bank-error-window" v-show="error.active" @click="closeError">
+                    <div class="bank-error-texts">
+                        <h1>ОШИБКА</h1>
+                        <p>{{ error.text }}</p>
+                    </div>
+                </div>
+            </transition>
+    </div>
+    <div id="houses" v-show="active" v-cloak>
+        <div class="house-wrapper" v-show="activeMain">
+            <img src="./systems/houses/img/bg.png" class="house-bg">
+            <div class="house-prompt-wrapper">
+                <div class="house-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
+                <p>закрыть окно</p>
+            </div>
+            <!-- <img src="./systems/houses/img/figura1.svg" class="house-b"> -->
+            <div class="house-container">
+                <div class="house-text-h-wrapper">
+                    <h1>Дом:</h1>
+                    <p>#{{id}}</p>
+                </div>
+                <div class="house-container-texts">
+                    <!-- <div class="house-container-texts-text">
+                        <h1>Страховка:</h1>
+                        <p>0 дней</p>
+                    </div> -->
+                    <div class="house-container-texts-text">
+                        <h1>Владелец:</h1>
+                        <p>{{ ownerName }}</p>
+                    </div>
+                    <div class="house-container-texts-text">
+                        <h1>Класс дома:</h1>
+                        <p>{{ houseClass }}</p>
+                    </div>
+                    <div class="house-container-texts-text">
+                        <h1>Плата в день:</h1>
+                        <p>$23</p>
+                    </div>
+                    <div class="house-container-texts-text">
+                        <h1>Стоимость</h1>
+                        <p>{{ price }}</p>
+                    </div>
+                    <div class="house-container-texts-garage" style="float: right;">
+                        <img src="./systems/houses/img/garage.svg" alt="">
+                        <p>Мест в гараже: <span style="color: rgba(255, 255, 255, 1);">2</span></p>
+                    </div>
+                </div>
+                <div class="house-container-buttons">
+                    <div class="house-container-button" v-if="ifOwner" @click="sellHouse">
+                        <img src="./systems/houses/img/sell.svg" alt="">
+                        <span>Продать дом</span>
+                    </div>
+                    <div class="house-container-button" v-if="ownerName == 'Государство'" @click="buyHouse">
+                        <img src="./systems/houses/img/buy.svg" alt="">
+                        <span>Купить</span>
+                    </div>
+                    <div class="house-container-button" v-if="ifOwner && ifLocked == 2" @click="unlockHouse">
+                        <img src="./systems/houses/img/unlocked.svg" alt="">
+                        <span>Открыть</span>
+                    </div>
+                    <div class="house-container-button" v-if="ifOwner && ifLocked == 1" @click="lockHouse">
+                        <img src="./systems/houses/img/locked.svg" alt="">
+                        <span>Закрыть</span>
+                    </div>
+                    <div class="house-container-button" @click="enterHouse">
+                        <img src="./systems/houses/img/house.svg" alt="">
+                        <span>Войти</span>
+                    </div>
+                    <!-- <div class="house-container-button" @click="enterGarage">
+                        <img src="./systems/houses/img/garage.svg" alt="">
+                        <span>Гараж</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="exit-wrapper" v-show="acitveExits">
+            <img src="./systems/houses/img/bg.png" class="house-bg">
+            <img src="./systems/houses/img/figura2.svg" class="house-b">
+            <img src="./systems/houses/img/points.png" class="house-b" style="width: 38vh; height: 52vh;">
+            <div class="exit-container">
+                <h1>Выход</h1>
+                <div class="exit-buttons">
+                    <div class="exit-button" @click="enterStreet">
+                        <p>На улицу</p>
+                    </div>
+                    <div class="exit-button" @click="enterGarage" v-if="!inGarage">
+                        <p>В гараж</p>
+                    </div>
+                    <div class="exit-button" @click="enterHouse" v-if="inGarage">
+                        <p>В дом</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="autoschool" v-show="active" v-cloak>
+        <img src="./systems/autoschool/img/bg.png" class="bg" v-if="open == 1">
+        <div class="bus-prompt-wrapper">
+            <div class="bus-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
+            <p>закрыть окно</p>
+        </div>
+        <div class="bg2" v-if="open == 2"></div>
+        <p class="text-center">Центр лицензирования</p>
+        <div class="autoschool-tabs-wrapper" v-if="open == 1">
+            <div class="autoschool-tab">
+                <img src="./systems/autoschool/img/icon_car.png" class="autoschool-tab-logo">
+                <div class="autoschool-tab-texts">
+                    <h1>Легковые авто</h1>
+                    <p>Стоймость сдачи экзамена - 500$</p>
+                </div>
+                <div class="autoschool-tab-button">
+                    <p>Выбрать</p>
+                </div>
+            </div>
+            <div class="autoschool-tab">
+                <img src="./systems/autoschool/img/icon_moto.png" class="autoschool-tab-logo">
+                <div class="autoschool-tab-texts">
+                    <h1>Мотоцикл</h1>
+                    <p>Стоймость сдачи экзамена - 500$</p>
+                </div>
+                <div class="autoschool-tab-button">
+                    <p>Выбрать</p>
+                </div>
+            </div>
+            <div class="autoschool-tab">
+                <img src="./systems/autoschool/img/icon_truck.png" class="autoschool-tab-logo">
+                <div class="autoschool-tab-texts">
+                    <h1>Грузовые авто</h1>
+                    <p>Стоймость сдачи экзамена - 500$</p>
+                </div>
+                <div class="autoschool-tab-button">
+                    <p>Выбрать</p>
+                </div>
+            </div>
+            <div class="autoschool-tab">
+                <img src="./systems/autoschool/img/icon_pilot.png" class="autoschool-tab-logo">
+                <div class="autoschool-tab-texts">
+                    <h1>Воздушный транспорт</h1>
+                    <p>Стоймость сдачи экзамена - 500$</p>
+                </div>
+                <div class="autoschool-tab-button">
+                    <p>Выбрать</p>
+                </div>
+            </div>
+        </div>
+        <div class="autoschool-test-wrapper" v-if="open == 2">
+            <div class="test">
+                <img src="./systems/autoschool/img/icon_car.png" class="type-img">
+            </div>
+            <div class="autoschool-test-container">
+                <h1>Первый вопрос</h1>
+                <h2>Когда я вчера срал?</h2>
+                <div class="autoschool-test-buttons">
+                    <div class="autoschool-test-button">
+                        <p>Да</p>
+                    </div>
+                    <div class="autoschool-test-button">
+                        <p>Да</p>
+                    </div>
+                    <div class="autoschool-test-button">
+                        <p>Да</p>
+                    </div>
+                    <div class="autoschool-test-button">
+                        <p>Да</p>
+                    </div>
+                </div>
+            </div>
+            <p class="test-text">Выберите правильный вариант ответа, если совершить 3 ошибки, тест будет провален</p>
+        </div>
+    </div>
+    <!-- ----[Работы]------ -->
+    <div id="farm" v-show="active" v-cloak>
+        <img src="./systems/jobs/farm/img/bg.png" class="bg">
+        <div class="farm-prompt-wrapper" v-show="typeWorkActive">
+            <div class="autosalon-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
+            <p>выйти</p>
+        </div>
+        <div class="farm-prompt-wrapper" v-show="work.active && isWork == false">
+            <div class="autosalon-prompt-button"><span>BACKSPACE</span></div>
+            <p>вернуться назад</p>
+        </div>
+        <div class="farm-type-work-wrapper" v-show="typeWorkActive">
+            <h1>Выберите тип работы</h1>
+            <div class="farm-type-work-btns">
+                <div class="farm-type-work-btn" @click="clickWork(1)"><span>Сборщик сена</span></div>
+                <div class="farm-type-work-btn" @click="clickWork(2)"><span>Тракторист</span></div>
+                <div class="farm-type-work-btn" @click="clickWork(3)"><span>Дояр</span></div>
+                <div class="farm-type-work-btn" @click="clickWork(4)"><span>Пилот</span></div>
+            </div>
+        </div>
+        <transition-group name="fade">
+            <div class="farm-info-wrapper" v-show="work.active" :key="1">
+                <h1>{{ work.name }}</h1>
+                <p>{{ work.desc}}
+                </p>
+                <div class="farm-info-button start" @click="startWork" v-if="!isWork">
+                    <span>Устроиться</span>
+                </div>
+                <div class="farm-info-button stop" style="background: #6B6B6B;" @click="stopWork" v-if="isWork">
+                    <span>Уволиться</span>
+                </div>
+                <h2 v-if="!isWork">{{ work.salary }}</h2>
+                <h2 v-if="isWork">Вы заработали: ${{ work.countedMoney }}</h2>
+            </div>
+            <!-- <div class="farm-hueta-wrapper" v-show="work.active" :key="2">
+                <div class="farm-hueta">
+                    <span> 💸 Оплата наличными </span>
+                </div>
+                <div class="farm-hueta">
+                    <span> 💰 Подработка </span>
+                </div>
+                <div class="farm-hueta">
+                    <span> 🔥 От 1 уровня </span>
+                </div>
+            </div> -->
+            </transition>
+    </div>
+    <div id="bus" v-show="active" v-cloak>
+        <img src="./systems/jobs/bus/img/bg.png" class="bg">
+        <div class="bus-prompt-wrapper">
+            <div class="bus-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
+            <p>закрыть окно</p>
+        </div>
+        <div class="bus-work-wrapper">
+            <div class="bus-info-wrapper" v-show="work.active" :key="1">
+                <h1>Автобусник</h1>
+                <p>Задача автобусника ездить по выбраному маршруту, и подвозить пассажиров, работа несложная, требующая
+                    водительских прав
+                </p>
+                <div class="farm-info-button start" @click="startWork" v-if="!isWork">
+                    <span>Устроиться</span>
+                </div>
+                <div class="farm-info-button stop" style="background: #6B6B6B;" @click="stopWork" v-if="isWork">
+                    <span>Уволиться</span>
+                </div>
+                <h2 v-if="isWork">Вы заработали: ${{ work.countedMoney }}</h2>
+            </div>
+            <div class="bus-buttons-route-wrapper">
+                <div class="bus-button-route" v-for="(item,i) in routes" @click="changeRoute(i)">
+                    <div class="bus-button-text-wrapper">
+                        <h1>{{ item.name }}</h1>
+                        <div class="bus-button-text">
+                            <p>{{item.length}} км.</p>
+                            <span>{{item.salary }}$</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mower" v-show="active" v-cloak>
+        <img src="./systems/jobs/mower/img/bg.png" class="bg">
+        <div class="farm-prompt-wrapper">
+            <div class="autosalon-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
+            <p>выйти</p>
+        </div>
+        <transition-group name="fade">
+            <div class="farm-info-wrapper" :key="1">
+                <h1>Газонокосильщик</h1>
+                <p>АХАВЫХАХЫАХХВЫАХЫВХАХ
+                </p>
+                <div class="farm-info-button start" @click="startWork" v-if="!isWork">
+                    <span>Устроиться</span>
+                </div>
+                <div class="farm-info-button stop" style="background: #6B6B6B;" @click="stopWork" v-if="isWork">
+                    <span>Уволиться</span>
+                </div>
+                <h2 v-if="!isWork">За один круг ${{ salary }}</h2>
+                <h2 v-if="isWork">Вы заработали: ${{ countedMoney }}</h2>
+            </div>
+            </transition>
+    </div>
+    <div id="taxi" v-show="active" v-cloak>
+        <img src="./systems/jobs/taxi/img/bg.png" class="bg" v-if="open == 1">
+        <img src="./systems/jobs/taxi/img/bg2.png" class="bg" v-if="open == 2">
+        <img src="./systems/jobs/taxi/img/bg3.png" class="bg" v-if="open == 3 || open == 4 || open == 5">
+        <div class="taxi-first-wnd-wrapper" v-if="open == 1">
+            <h1>Таксист</h1>
+            <p>Habitant integer eget eget nisi eget amet, id. Hac augue sit id nullam volutpat pellentesque. Aenean
+                varius vivamus congue vel. Tortor sed ac ut turpis at sed feugiat. Nunc cras vitae tellus bibendum
+                purus. Proin enim feugiat non mauris placerat
+                scelerisque vel, adipiscing quisque.</p>
+            <div class="taxi-first-button taxi-first-button-start" v-if="isWork == false" @click="startWork">
+                <span>Устроиться</span>
+            </div>
+            <div class="taxi-first-button taxi-first-button-leave" v-if="isWork == true" @click="leaveWork">
+                <span>Уволиться</span>
+            </div>
+            <h2>Ваш уровень: баг диа</h2>
+        </div>
+        <div class="taxi-oders-wrapper" v-if="open == 2">
+            <div class="taxi-order-wrapper" v-for="(item,i) in orders">
+                <div class="taxi-order-wrapper-text">
+                    <h1>Номер заказа:</h1>
+                    <p>№{{ item.num }}</p>
+                </div>
+                <div class="taxi-order-wrapper-text">
+                    <h1>Имя заказчика:</h1>
+                    <p>{{ item.name }}</p>
+                </div>
+                <div class="taxi-order-wrapper-text">
+                    <h1>Дистанция до него:</h1>
+                    <p>{{ item.dist }} м.</p>
+                </div>
+                <div class="taxi-order-button" @click="accept(i)">
+                    <span>Принять ислам</span>
+                </div>
+            </div>
+        </div>
+        <div class="taxi-rent-taxi-wrapper" v-if="open == 3">
+            <h1>Аренда такси</h1>
+            <p>Вы действительно хотите работать в такси?</p>
+            <h2>Цена: <span style="color: #FFE83F;">$50</span></h2>
+            <div class="taxi-rent-taxi-buttons">
+                <div class="taxi-rent-taxi-button taxi-rent" @click="rentTaxi">
+                    <span>Арендовать</span>
+                </div>
+                <div class="taxi-rent-taxi-button taxi-rent-close" @click="decline">
+                    <span>Отмена</span>
+                </div>
+            </div>
+        </div>
+        <div class="taxi-fare-wrapper" v-if="open == 4">
+            <h1>Цена за проезд</h1>
+            <input type="number" v-model="inputPrice">
+            <div class="taxi-fare-buttons">
+                <div class="taxi-fare-button fare-rent" @click="setPrice">
+                    <span>Установить</span>
+                </div>
+                <div class="taxi-fare-button fare-rent-close" @click="decline">
+                    <span>Отмена</span>
+                </div>
+            </div>
+        </div>
+        <div class="taxi-rent-taxi-wrapper" v-if="open == 5">
+            <h1>Оплата за проезд</h1>
+            <p>Расстояние: {{tripLength}} км. Вы должны заплатить <span style="color: #FFE83F">${{ tripPrice }}</span>
+            </p>
+            <div class="taxi-rent-taxi-buttons">
+                <div class="taxi-rent-taxi-button taxi-rent" @click="payTrip">
+                    <span>Оплатить</span>
+                </div>
+                <div class="taxi-rent-taxi-button taxi-rent-close" @click="decline">
+                    <span>Отмена</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="./js/jq.js"></script>
+<script src="./js/jquery-ui.js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/theme/default.css">
+<script src="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/dist/vue-slider-component.umd.min.js"></script>
+<!--  -->
+<script src="./systems/auth/auth.js"></script>
+<script src="./systems/pedCreator/editor.js"></script>
+<script src="./systems/charSelector/index.js"></script>
+<!-- HUD -->
+<script src="./systems/Hud/main.js"></script>
+<script src="./systems/Hud/speedometr.js"></script>
+<script src="./systems/Hud/chat.js"></script>
+
+<!-- Автосалон -->
+<script src="./systems/Autosalon/autosalon.js"></script>
+
+<!-- Банк -->
+
+<script src="./systems/bank/bank.js"></script>
+<script src="./systems/bank/bankomat.js"></script>
+
+<!-- Недвижимость -->
+<script src="./systems/houses/houses.js"></script>
+
+<!-- Автошкола -->
+<script src="./systems/autoschool/autoschool.js"></script>
+
+<!-- Работы -->
+<script src="./systems/jobs/farm/farm.js"></script>
+<script src="./systems/jobs/bus/bus.js"></script>
+<script src="./systems/jobs/mower/mower.js"></script>
+<script src="./systems/jobs/taxi/taxi.js"></script>

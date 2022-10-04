@@ -1,0 +1,27 @@
+{
+    "name": "stage",
+    "version": "1",
+    "main": "index.js",
+    "scripts": {
+        "update": "altv-pkg d release"
+    },
+    "author": "stage studio",
+    "type": "module",
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": true,
+        "bracketSpacing": true
+    },
+    "devDependencies": {
+        "@altv/types-client": "^2.3.2",
+        "@altv/types-natives": "^1.4.5",
+        "@altv/types-server": "^2.4.6",
+        "@altv/types-shared": "^1.2.9",
+        "@altv/types-webview": "^1.0.4"
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "mysql": "^2.18.1"
+    }
+}

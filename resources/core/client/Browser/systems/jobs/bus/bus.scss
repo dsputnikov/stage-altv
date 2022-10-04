@@ -1,0 +1,163 @@
+#bus {
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .bus-work-wrapper {
+        .bus-info-wrapper {
+            display: block;
+            @extend %center;
+            h1 {
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 7.2vh;
+
+                text-align: center;
+
+                color: #ffffff;
+
+                text-shadow: 0px 6px 0px #aaaaaa;
+            }
+            p {
+                margin: 2.1vh auto;
+                max-width: 38vh;
+
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+                text-align: center;
+
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .farm-info-button {
+                position: relative;
+                margin: 0 auto;
+                width: 35vh;
+                height: 12vh;
+                margin-top: 6.4vh;
+                transition: all 0.5s;
+                span {
+                    @extend %center;
+                    font-family: Gilroy;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 2.8vh;
+
+                    color: #ffffff;
+                }
+            }
+            .start {
+                background: #2c80ef;
+                &:hover {
+                    background: #2a7be6;
+                    box-shadow: 0px 4px 0px #2f74ce;
+                }
+            }
+            .stop {
+                background: #6b6b6b;
+                &:hover {
+                    background: #5f5f5f;
+                    box-shadow: 0px 4px 0px #635d5d;
+                }
+            }
+            h2 {
+                margin-top: 1vh;
+                text-align: center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 2.4vh;
+
+                color: #ffffff;
+            }
+        }
+        .bus-buttons-route-wrapper {
+            @extend %vcenter;
+            right: 11.7vh;
+            .bus-button-route {
+                display: flex;
+                align-items: center;
+                width: 42vh;
+                height: 10vh;
+                margin-top: 1vh;
+
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 5px;
+                transition: all 1s;
+                .bus-button-text-wrapper {
+                    display: block;
+                    margin-left: 3vh;
+                    h1 {
+                        font-family: Gilroy;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 2.2vh;
+
+                        color: #ffffff;
+                    }
+                    .bus-button-text {
+                        display: flex;
+                        p {
+                            font-family: Gilroy;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 2vh;
+
+                            color: rgba(255, 255, 255, 0.5);
+                        }
+                        span {
+                            font-family: Gilroy;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 2vh;
+
+                            color: #c9ff56;
+                        }
+                    }
+                }
+                &:hover {
+                    background: linear-gradient(151.09deg, #2C80EF 6.08%, rgba(44, 128, 239, 0.19) 82.21%);
+                }
+            }
+        }
+    }
+    .bus-prompt-wrapper {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        bottom: 3vh;
+        right: 4.4vh;
+        opacity: 0.8;
+        .bus-prompt-button {
+            position: relative;
+            width: 11.5vh;
+            height: 4.1vh;
+
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            span {
+                @extend %center;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.4vh;
+
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+        p {
+            margin-left: 1.5vh;
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.8vh;
+
+            color: rgba(255, 255, 255, 0.5);
+
+            // opacity: 0.5;
+        }
+    }
+}
